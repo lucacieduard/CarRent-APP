@@ -1,0 +1,156 @@
+@import "../../styles/variables.scss";
+
+.navbar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap:1rem;
+    background-color: $white;
+    padding: 2rem 1.5rem;
+    padding-bottom: 6rem;
+
+    @media (min-width:540px) {
+        height: 7.75rem;
+        padding:0 1.75rem;  
+    }
+
+    @media (min-width:1150px) {
+        padding:0 3rem;
+    }
+    
+
+   
+    .search{
+        position: absolute;
+        align-items: center;
+        display: flex;
+        gap:0.5rem;
+        top:5rem;
+        border-radius: 0.625rem;
+        border: 1px solid rgba(195, 212, 233, 0.40);
+        padding:0.55rem 1.5rem;
+        height: 2.2rem;
+
+        @media (min-width:540px) {
+        position:unset;
+        order:1;
+        flex:1;
+        height: 2rem;
+        max-width: 250px;
+        border-radius: 4.375rem;
+        }
+
+        @media (min-width:1150px) {
+                    height: 2.75rem; 
+       }
+    
+      
+
+        .icon{
+        color:#596780;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        
+        }
+
+
+
+        .input{
+            outline: none;
+            border: none;
+            font-size: 0.85rem;
+            letter-spacing: -0.01rem;
+            font-weight: 500;
+        }
+    }
+
+    .logo{
+        order:0;
+        color:$button-blue;
+        font-size:1.5rem;
+        font-weight: 700;
+        flex:1;
+        font-weight: 700;
+
+        @media (min-width:540px) {
+            flex:0;
+            font-size: 1.7rem;
+        }
+        @media (min-width:750px) {
+            margin-right: 2rem;
+        }
+
+        @media (min-width:1150px) {
+           font-size: 2rem;
+        }
+    }
+
+    .icons{
+        display: flex;
+        gap:10px;
+        order:2;
+
+        @media (min-width:540px) {
+            flex:1;
+            justify-content: flex-end;     
+        }
+
+        .icon{
+            width: 1.75rem;
+            height: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5.625rem;
+            border: 1px solid rgba(195, 212, 233, 0.40);
+            opacity: 0.8;
+
+
+            @media (min-width:750px) {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            @media (min-width:1150px) {
+                width: 2.75rem;
+                height: 2.75rem;
+            }
+
+            .faicon{
+                width: 0.9rem;
+                height: 0.9rem;
+
+                @media (min-width:750px) {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+                @media (min-width:750px) {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .profile_pic{
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 5.626rem;
+        order:3;
+
+        @media (min-width:540px) {
+            justify-self: flex-end;
+        }
+        @media (min-width:750px) {
+            width: 2rem;
+            height: 2rem;
+        }
+        @media (min-width:1150px) {
+            width: 2.75rem;
+            height: 2.75rem;
+        }
+    }
+}
