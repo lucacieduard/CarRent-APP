@@ -9,7 +9,7 @@ import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 const NavBar = () => {
   return (
     <FullPageLayout>
-      <div className="navbar">
+      <div className="navbar container_w">
         <span className="logo">MORENT</span>
         <div className="icons">
           <span className="icon">
