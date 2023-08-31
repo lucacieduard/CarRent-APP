@@ -1,0 +1,46 @@
+.hero {
+    padding-top: 2rem;
+
+    .card {
+        flex: 1;
+
+        .button {
+            &:hover {
+                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid white;
+            }
+        }
+    }
+
+    .card:nth-of-type(2) {
+        background-color: #3563e9;
+        .button {
+            background-color: #54a6ff;
+
+            &:hover {
+                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid white;
+            }
+        }
+    }
+
+    .card:nth-of-type(2) {
+        display: none;
+    }
+
+    @media (min-width: 680px) {
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+
+        .card:nth-of-type(2) {
+            display: inherit;
+        }
+    }
+
+    @media (min-width: 800px) {
+        gap: 2rem;
+    }
+}
