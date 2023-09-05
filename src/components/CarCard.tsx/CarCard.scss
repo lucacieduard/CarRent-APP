@@ -1,0 +1,188 @@
+.cardCar {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.625rem;
+    width: 15rem;
+    height: 17.875rem;
+
+    @media (min-width: 1075px) {
+        height: auto;
+        flex: 1;
+        max-width: 19rem;
+    }
+
+    @media (min-width: 1370px) {
+        padding: 1.5rem;
+        max-width: 20rem;
+    }
+
+    @media (min-width: 1450px) {
+        max-width: 21rem;
+    }
+    @media (min-width: 1550px) {
+        max-width: 22rem;
+    }
+    .cardHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .carName {
+            color: #1a202c;
+            font-size: 1rem;
+            font-weight: 600;
+
+            @media (min-width: 1075px) {
+                font-size: 1.1rem;
+            }
+
+            @media (min-width: 1250px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .heart {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .carType {
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.015rem;
+        color: #90a3bf;
+
+        @media (min-width: 1250px) {
+            font-size: 0.87rem;
+        }
+    }
+
+    .cardMain {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @media (min-width: 1075px) {
+            margin-top: 4rem;
+        }
+        .mainImg {
+            width: 11rem;
+            align-self: center;
+
+            @media (min-width: 1075px) {
+                width: 13rem;
+            }
+
+            @media (min-width: 1250px) {
+                width: 14.5rem;
+            }
+            @media (min-width: 1400px) {
+                width: 15rem;
+            }
+        }
+
+        .specifications {
+            display: flex;
+            justify-content: space-between;
+            .spec {
+                list-style: none;
+                display: flex;
+                gap: 0.25rem;
+                align-items: center;
+
+                @media (min-width: 1250px) {
+                    margin-top: 2rem;
+                }
+                @media (min-width: 1370px) {
+                    margin-top: 4rem;
+                }
+                .specIcon {
+                    color: #90a3bf;
+                    width: 0.875rem;
+                    height: 0.875rem;
+
+                    @media (min-width: 1250px) {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+                    @media (min-width: 1250px) {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+                    @media (min-width: 1370px) {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+                .specText {
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    letter-spacing: -0.015rem;
+                    color: #90a3bf;
+
+                    @media (min-width: 1250px) {
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .cardFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.75rem;
+
+        .price {
+            color: #1a202c;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01rem;
+
+            @media (min-width: 1250px) {
+                font-size: 1.25rem;
+            }
+            .day {
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: -0.0075rem;
+                color: #90a3bf;
+
+                @media (min-width: 1250px) {
+                    font-size: 0.85rem;
+                }
+                @media (min-width: 1250px) {
+                    font-size: 0.87rem;
+                }
+            }
+        }
+
+        .rentNow {
+            padding: 0.2rem 0.55rem;
+            height: 2.25rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: -0.025rem;
+            border-radius: 0.25rem;
+            background-color: #3563e9;
+            border: none;
+            color: white;
+
+            @media (min-width: 1250px) {
+                width: 7.25rem;
+                height: 2.5rem;
+                padding: 0rem 1.25rem;
+                font-size: 0.8rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 1.5rem */
+                letter-spacing: -0.02rem;
+            }
+        }
+    }
+}

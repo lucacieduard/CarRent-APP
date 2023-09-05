@@ -1,0 +1,43 @@
+.popularCars {
+    margin-top: 2rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        .title {
+            color: #90a3bf;
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 150%; /* 1.3125rem */
+            letter-spacing: -0.0175rem;
+
+            @media (min-width: 1250px) {
+                font-size: 1rem;
+            }
+        }
+        .link {
+            color: #3563e9;
+            font-size: 0.75rem;
+            font-weight: 600;
+
+            @media (min-width: 1250px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .cards {
+        display: flex;
+        overflow-x: scroll;
+        gap: 1.2rem;
+
+        @media (min-width: 1000px) {
+            overflow-x: hidden;
+        }
+        @media (min-width: 1370px) {
+            justify-content: space-between;
+            gap: 2rem;
+        }
+    }
+}
