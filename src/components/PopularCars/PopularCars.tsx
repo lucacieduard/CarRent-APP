@@ -9,10 +9,10 @@ const PopularCars = () => {
         <span className="link">View All</span>
       </div>
       <div className="cards">
-        <CarCard wide={false} />
-        <CarCard wide={false} />
-        <CarCard wide={false} />
-        <CarCard wide={false} />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
       </div>
     </div>
   );

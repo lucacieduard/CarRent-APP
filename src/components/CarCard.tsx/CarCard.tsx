@@ -2,10 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import "./CarCard.scss";
 import { faGasPump, faO, faUserGroup } from "@fortawesome/free-solid-svg-icons";
-type Props = {
-  wide: boolean;
-};
-const CarCard = (props: Props) => {
+
+const CarCard = () => {
   return (
     <div className="cardCar">
       <div className="cardHeader">
