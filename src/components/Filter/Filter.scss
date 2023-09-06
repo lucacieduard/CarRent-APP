@@ -1,0 +1,105 @@
+.filterContainer {
+    background-color: white;
+    border-radius: 0.625rem;
+    padding: 1rem;
+
+    @media (min-width: 450px) {
+        width: fit-content;
+    }
+
+    @media (min-width: 800px) {
+        width: inherit;
+    }
+
+    @media (min-width: 900px) {
+        padding: 1.5rem;
+    }
+
+    @media (min-width: 950px) {
+        padding-right: 3rem;
+        padding-left: 3rem;
+        flex: 1;
+    }
+
+    .pickup {
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        .title {
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 150%; /* 1.5rem */
+            letter-spacing: -0.02rem;
+            color: #1a202c;
+        }
+    }
+
+    .chooses {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .field {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+            @media (min-width: 400px) {
+                &:nth-of-type(1) {
+                    padding-right: 1.25rem;
+                    border-right: 1px solid rgba(195, 212, 233, 0.4);
+                }
+                &:nth-of-type(2) {
+                    padding-right: 1.25rem;
+                    padding-left: 1.25rem;
+                }
+
+                &:nth-of-type(3) {
+                    padding-left: 1.25rem;
+                    border-left: 1px solid rgba(195, 212, 233, 0.4);
+                }
+            }
+            .fieldTitle {
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%; /* 1.5rem */
+                letter-spacing: -0.02rem;
+            }
+
+            input,
+            select {
+                font-size: 0.75rem;
+                border: none;
+                background-color: transparent;
+                outline: none;
+                color: #90a3bf;
+                font-weight: 400;
+                letter-spacing: -0.0075rem;
+                width: auto;
+
+                @media (min-width: 1100px) {
+                    width: 5.5rem;
+                }
+                @media (min-width: 1150px) {
+                    width: 6.3rem;
+                }
+                @media (min-width: 1250px) {
+                    width: 6.8rem;
+                }
+                @media (min-width: 1350px) {
+                    width: 7.5rem;
+                    font-size: 0.85rem;
+                }
+                @media (min-width: 1400px) {
+                    width: 8rem;
+                }
+                @media (min-width: 1450px) {
+                    width: 8.8rem;
+                }
+            }
+        }
+    }
+}
