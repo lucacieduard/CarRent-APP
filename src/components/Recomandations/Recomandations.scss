@@ -1,0 +1,28 @@
+.recomandations {
+    margin-top: 2rem;
+
+    .title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 150%; /* 1.3125rem */
+        letter-spacing: -0.0175rem;
+        color: #90a3bf;
+    }
+
+    .recomandationCars {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+
+        gap: 1.25rem;
+
+        @media (min-width: 550px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 1370px) {
+            gap: 2rem;
+        }
+    }
+}

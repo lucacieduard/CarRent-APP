@@ -5,6 +5,7 @@ import PopularCars from "../../components/PopularCars/PopularCars";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import "./Home.scss";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Recomandations from "../../components/Recomandations/Recomandations";
 const Home = () => {
   return (
     <div className="bg">
@@ -22,6 +23,7 @@ const Home = () => {
           <Filter pickUp={false} />
         </div>
         <PopularCars />
+        <Recomandations />
       </FullPageLayout>
     </div>
   );
