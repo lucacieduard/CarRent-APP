@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <FullPageLayout>
       <div className="navbar container_w">
-        <Link to={"/"} style={{ textDecoration: "none" }}>
+        <Link to={"/"} style={{ textDecoration: "none" }} className="logo">
           <span className="logo">MORENT</span>
         </Link>
         <div className="icons">
