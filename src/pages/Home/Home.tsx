@@ -6,6 +6,7 @@ import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import "./Home.scss";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Recomandations from "../../components/Recomandations/Recomandations";
+import Footer from "../../components/Footer/Footer";
 const Home = () => {
   return (
     <div className="bg">
@@ -25,6 +26,11 @@ const Home = () => {
         <PopularCars />
         <Recomandations />
       </FullPageLayout>
+      <div style={{ backgroundColor: "white" }}>
+        <FullPageLayout>
+          <Footer />
+        </FullPageLayout>
+      </div>
     </div>
   );
 };
