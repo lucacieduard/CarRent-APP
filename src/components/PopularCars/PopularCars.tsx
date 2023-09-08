@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CarCard from "../CarCard.tsx/CarCard";
 import "./PopularCars.scss";
 
@@ -6,7 +7,9 @@ const PopularCars = () => {
     <div className="popularCars container_w">
       <div className="header">
         <h3 className="title">Popular</h3>
-        <span className="link">View All</span>
+        <Link to={"/cars"} style={{ textDecoration: "none" }}>
+          <span className="link">View All</span>
+        </Link>
       </div>
       <div className="cards">
         <CarCard recomandation={false} />

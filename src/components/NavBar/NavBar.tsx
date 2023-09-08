@@ -6,11 +6,14 @@ import {
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <FullPageLayout>
       <div className="navbar container_w">
-        <span className="logo">MORENT</span>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <span className="logo">MORENT</span>
+        </Link>
         <div className="icons">
           <span className="icon">
             <FontAwesomeIcon icon={faHeart} className="faicon" />
