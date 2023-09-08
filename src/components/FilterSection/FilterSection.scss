@@ -13,9 +13,9 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    @media (min-width: 1200px) {
-        gap: 2.75rem;
-    }
+    // @media (min-width: 1250px) {
+    //     gap: 2.75rem;
+    // }
 
     .arrows {
         position: absolute;
@@ -31,7 +31,7 @@
         justify-content: center;
         color: white;
 
-        @media (min-width: 1050px) {
+        @media (min-width: 1200px) {
             position: unset;
             top: unset;
             left: unset;

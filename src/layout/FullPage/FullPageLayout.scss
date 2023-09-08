@@ -1,12 +1,7 @@
-.container{
-    padding:0 1.5rem;
+.container {
+    padding: 0 1.5rem;
 
-    @media (min-width:560px) {
-        padding:0 1.75rem;  
+    @media (min-width: 560px) {
+        padding: 0 1.75rem;
     }
-
-    @media (min-width:1250px) {
-        padding:0 3rem;
-    }
-
 }

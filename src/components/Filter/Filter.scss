@@ -8,17 +8,16 @@
     }
 
     @media (min-width: 800px) {
-        width: inherit;
     }
 
     @media (min-width: 900px) {
         padding: 1.5rem;
+        flex: 1;
     }
 
-    @media (min-width: 950px) {
-        padding-right: 3rem;
-        padding-left: 3rem;
-        flex: 1;
+    @media (min-width: 1400px) {
+        // padding-right: 3rem;
+        // padding-left: 3rem;
     }
 
     .pickup {
