@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import "./CarCard.scss";
 import { faGasPump, faO, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 type Props = {
   recomandation: boolean;
@@ -43,7 +44,10 @@ const CarCard = (props: Props) => {
         <p className="price">
           $99.00/<span className="day">day</span>{" "}
         </p>
+        <Link to={`/cars/dummyID`}>
+        
         <button className="rentNow">Rental Now</button>
+        </Link>
       </div>
     </div>
   );

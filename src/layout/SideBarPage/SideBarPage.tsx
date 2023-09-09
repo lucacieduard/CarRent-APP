@@ -1,20 +1,28 @@
 import FullPageLayout from "../FullPage/FullPageLayout";
 import "./SideBar.scss";
 import { useState } from "react";
-const SideBarPage = ({ children }: { children: React.ReactNode }) => {
+const SideBarPage = ({
+  buttons,
+  children,
+}: {
+  buttons: boolean;
+  children: React.ReactNode;
+}) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
 
   return (
     <FullPageLayout>
       <div className="sideBar_page_layout container_w">
-        <button
-          className="button hideDesktop"
-          onClick={() => {
-            setShowSideBar((prev) => !prev);
-          }}
-        >
-          Filter
-        </button>
+        {buttons && (
+          <button
+            className="button hideDesktop"
+            onClick={() => {
+              setShowSideBar((prev) => !prev);
+            }}
+          >
+            Filter
+          </button>
+        )}
         <div className={`sidebar ${showSideBar ? "" : "hide"}`}>
           <div className="sections">
             <div className="section">
@@ -81,9 +89,11 @@ const SideBarPage = ({ children }: { children: React.ReactNode }) => {
               </div>
             </div>
           </div>
-          <button className="button w" onClick={() => setShowSideBar(false)}>
-            Apply Filters
-          </button>
+          {buttons && (
+            <button className="button w" onClick={() => setShowSideBar(false)}>
+              Apply Filters
+            </button>
+          )}
         </div>
         <div className="page">{children}</div>
       </div>

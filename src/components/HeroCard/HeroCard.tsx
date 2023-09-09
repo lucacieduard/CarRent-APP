@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./HeroCard.scss";
 
 type Props = {
@@ -19,7 +20,10 @@ const HeroCard = (props: Props) => {
     >
       <h2 className="title">{props.title}</h2>
       <p className="description">{props.description}</p>
-      <button className="button">Rental Car</button>
+
+      <Link to={"/cars"} style={{ textDecoration: "none" }}>
+        <button className="button">Rent now!</button>
+      </Link>
 
       <img src={props.carImage} alt="car image" className="car" />
     </div>

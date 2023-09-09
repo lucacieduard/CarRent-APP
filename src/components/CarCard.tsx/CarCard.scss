@@ -168,6 +168,10 @@
             border: none;
             color: white;
 
+            &:hover {
+                cursor: pointer;
+            }
+
             @media (min-width: 1250px) {
                 width: 7.25rem;
                 height: 2.5rem;

@@ -17,7 +17,7 @@ const Cars = () => {
   };
   return (
     <div className="bg">
-      <SideBarPage>
+      <SideBarPage buttons={true}>
         <FilterSection />
         <div className="carsContainer">
           {Array(carsNumber)
