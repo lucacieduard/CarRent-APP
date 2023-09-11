@@ -1,0 +1,91 @@
+.review {
+    display: flex;
+    gap: 0.5rem;
+
+    @media (min-width: 800px) {
+        gap: 1rem;
+    }
+
+    .profilePic {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 3.75rem;
+
+        @media (min-width: 800px) {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+
+    .reviewContent {
+        .reviewHeader {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            align-items: center;
+            .reviewerName {
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 1.5rem */
+                letter-spacing: -0.02rem;
+                color: #1a202c;
+
+                @media (min-width: 800px) {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                }
+            }
+
+            .postDate {
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+                color: #90a3bf;
+
+                @media (min-width: 800px) {
+                    font-size: 0.875rem;
+                }
+            }
+        }
+
+        .reviewInfo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            @media (min-width: 800px) {
+                margin-bottom: 0.75rem;
+            }
+            .reviewerTitle {
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+                color: #90a3bf;
+
+                @media (min-width: 800px) {
+                    font-size: 0.875rem;
+                }
+            }
+            .rating {
+            }
+        }
+
+        .description {
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 200%; /* 1.5rem */
+            letter-spacing: -0.015rem;
+            color: #90a3bf;
+
+            @media (min-width: 800px) {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
