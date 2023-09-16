@@ -6,6 +6,7 @@ import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import SideBarPage from "../../layout/SideBarPage/SideBarPage";
 import "./CarPage.scss";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import PopularCars from "../../components/PopularCars/PopularCars";
 
 const CarPage = () => {
   return (
@@ -23,6 +24,10 @@ const CarPage = () => {
               Show All <FontAwesomeIcon icon={faChevronDown} className="icon" />
             </button>
           </div>
+        </div>
+        <PopularCars title="Recent Car" />
+        <div style={{ marginBottom: "2rem" }}>
+          <PopularCars title="Recomandation Car" />
         </div>
       </SideBarPage>
       <div style={{ backgroundColor: "white" }}>

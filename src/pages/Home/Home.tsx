@@ -11,7 +11,7 @@ const Home = () => {
       <FullPageLayout>
         <Hero />
         <FilterSection />
-        <PopularCars />
+        <PopularCars title="Popular Car" />
         <Recomandations />
       </FullPageLayout>
       <div style={{ backgroundColor: "white" }}>
