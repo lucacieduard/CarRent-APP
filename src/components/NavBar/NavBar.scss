@@ -1,57 +1,63 @@
 @import "../../styles/variables.scss";
 
-.navbar{
+.navbar {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap:1rem;
+    gap: 1rem;
     background-color: $white;
     height: 5rem;
-    margin-bottom:3rem;  
-    
-    @media (min-width:560px) {
+    margin-bottom: 3rem;
+
+    @media (min-width: 560px) {
         margin-bottom: 0;
     }
-   
-    .search{
+
+    .authLinks {
+        display: flex;
+        gap: 1rem;
+        a {
+            text-decoration: none;
+            color: #596780;
+        }
+
+        @media (min-width: 560px) {
+            order: 2;
+        }
+    }
+    .search {
         position: absolute;
         align-items: center;
         display: flex;
-        gap:0.5rem;
-        top:4.5rem;
+        gap: 0.5rem;
+        top: 4.5rem;
         border-radius: 0.625rem;
-        border: 1px solid rgba(195, 212, 233, 0.40);
-        padding:0.55rem 1.5rem;
+        border: 1px solid rgba(195, 212, 233, 0.4);
+        padding: 0.55rem 1.5rem;
         height: 2.2rem;
 
-        @media (min-width:560px) {
-        position:unset;
-        order:1;
-        flex:1;
-        height: 2rem;
-        max-width: 250px;
-        border-radius: 4.375rem;
+        @media (min-width: 560px) {
+            position: unset;
+            order: 1;
+            flex: 1;
+            height: 2rem;
+            max-width: 250px;
+            border-radius: 4.375rem;
         }
 
-        @media (min-width:1250px) {
-                    height: 2.75rem; 
-       }
-    
-      
-
-        .icon{
-        color:#596780;
-        width: 1.5rem;
-        height: 1.5rem;
-
-        
+        @media (min-width: 1250px) {
+            height: 2.75rem;
         }
 
+        .icon {
+            color: #596780;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
-
-        .input{
+        .input {
             outline: none;
             border: none;
             font-size: 0.85rem;
@@ -60,64 +66,62 @@
         }
     }
 
-    .logo{
-        order:0;
-        color:$button-blue;
-        font-size:1.5rem;
+    .logo {
+        order: 0;
+        color: $button-blue;
+        font-size: 1.5rem;
         font-weight: 700;
-        flex:1;
+        flex: 1;
         font-weight: 700;
 
-        @media (min-width:560px) {
-            flex:0;
+        @media (min-width: 560px) {
+            flex: 0;
             font-size: 1.7rem;
         }
-        @media (min-width:750px) {
+        @media (min-width: 750px) {
             margin-right: 2rem;
         }
 
-        @media (min-width:1250px) {
-           font-size: 2rem;
+        @media (min-width: 1250px) {
+            font-size: 2rem;
         }
     }
 
-    .icons{
+    .icons {
         display: flex;
-        gap:10px;
-        order:2;
+        gap: 10px;
+        order: 2;
 
-        @media (min-width:540px) {
-            flex:1;
-            justify-content: flex-end;     
+        @media (min-width: 540px) {
+            flex: 1;
+            justify-content: flex-end;
         }
 
-        .icon{
+        .icon {
             width: 1.75rem;
             height: 1.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 5.625rem;
-            border: 1px solid rgba(195, 212, 233, 0.40);
+            border: 1px solid rgba(195, 212, 233, 0.4);
             opacity: 0.8;
 
-
-            @media (min-width:750px) {
+            @media (min-width: 750px) {
                 width: 2rem;
                 height: 2rem;
             }
 
-            @media (min-width:1250px) {
+            @media (min-width: 1250px) {
                 width: 2.75rem;
                 height: 2.75rem;
             }
 
-            .faicon{
+            .faicon {
                 width: 0.9rem;
                 height: 0.9rem;
 
-                
-                @media (min-width:750px) {
+                @media (min-width: 750px) {
                     width: 1.5rem;
                     height: 1.5rem;
                 }
@@ -125,20 +129,20 @@
         }
     }
 
-    .profile_pic{
+    .profile_pic {
         width: 1.75rem;
         height: 1.75rem;
         border-radius: 5.626rem;
-        order:3;
+        order: 3;
 
-        @media (min-width:540px) {
+        @media (min-width: 540px) {
             justify-self: flex-end;
         }
-        @media (min-width:750px) {
+        @media (min-width: 750px) {
             width: 2rem;
             height: 2rem;
         }
-        @media (min-width:1250px) {
+        @media (min-width: 1250px) {
             width: 2.75rem;
             height: 2.75rem;
         }
