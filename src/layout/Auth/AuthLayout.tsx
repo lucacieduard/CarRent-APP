@@ -9,7 +9,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="container_w loginContainer">
           <div className="loginImg">
             <img
-              src="/login-register.png"
+              src="/login-register.webp"
               alt="logo image"
               className="authImage"
             />
