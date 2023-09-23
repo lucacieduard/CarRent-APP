@@ -7,6 +7,7 @@ import CarPage from "./pages/Car/CarPage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 function App() {
+  // TODO protect routes 16m
   return (
     <div className="app">
       <NavBar />

@@ -4,18 +4,24 @@ import {
   faMagnifyingGlass,
   faHeart,
   faBell,
+  faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 const NavBar = () => {
-  const connected = false;
+  const authCtx = useContext(AuthContext);
+
   return (
     <FullPageLayout>
       <div className="navbar container_w">
         <Link to={"/"} style={{ textDecoration: "none" }} className="logo">
           <span className="logo">MORENT</span>
         </Link>
-        {connected ? (
+        {authCtx.user.firstName ? (
           <>
             <div className="icons">
               <span className="icon">
@@ -24,9 +30,16 @@ const NavBar = () => {
               <span className="icon">
                 <FontAwesomeIcon icon={faBell} className="faicon" />
               </span>
+              <span className="icon">
+                <FontAwesomeIcon
+                  icon={faSignOut}
+                  className="faicon"
+                  onClick={() => signOut(auth)}
+                />
+              </span>
             </div>
             <img
-              src="/profile.png"
+              src={authCtx.user.fileURL}
               alt="profile picture"
               className="profile_pic"
             ></img>
