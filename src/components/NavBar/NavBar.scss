@@ -47,6 +47,13 @@
             border-radius: 4.375rem;
         }
 
+        @media (min-width: 1000px) {
+            &:focus-within {
+                max-width: 400px;
+            }
+            transition: all 1s;
+        }
+
         @media (min-width: 1250px) {
             height: 2.75rem;
         }
