@@ -11,7 +11,7 @@
     height: 5rem;
     margin-bottom: 3rem;
 
-    @media (min-width: 560px) {
+    @media (min-width: 570px) {
         margin-bottom: 0;
     }
 
@@ -23,7 +23,7 @@
             color: #596780;
         }
 
-        @media (min-width: 560px) {
+        @media (min-width: 570px) {
             order: 2;
         }
     }
@@ -38,12 +38,13 @@
         padding: 0.55rem 1.5rem;
         height: 2.2rem;
 
-        @media (min-width: 560px) {
+        @media (min-width: 570px) {
             position: unset;
             order: 1;
             flex: 1;
             height: 2rem;
             max-width: 250px;
+
             border-radius: 4.375rem;
         }
 
@@ -81,7 +82,7 @@
         flex: 1;
         font-weight: 700;
 
-        @media (min-width: 560px) {
+        @media (min-width: 570px) {
             flex: 0;
             font-size: 1.7rem;
         }
