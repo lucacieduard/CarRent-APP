@@ -1,3 +1,126 @@
-.adminContainer {
-    display: flex;
+.globalAdmin {
+    border-top: 1px solid rgba(195, 212, 233, 0.4);
+    background-color: #f6f7f9;
+
+    @media (min-width: 900px) {
+        background-color: white;
+    }
+    .adminContainer {
+        display: flex;
+        max-height: calc(100vh - 5rem - 1px);
+        scroll-behavior: smooth;
+
+        .bars {
+            position: absolute;
+            top: 4.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            right: 1.85rem;
+            color: #1a202c;
+
+            @media (min-width: 570px) {
+                top: 5.5rem;
+            }
+        }
+
+        .sideBarAdminMobile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.979);
+            flex-direction: column;
+            gap: 10rem;
+
+            @media (min-width: 900px) {
+                position: relative;
+                top: unset;
+                left: unset;
+                width: unset;
+                height: calc(100vh - 5rem - 1px);
+                background-color: white;
+                border-right: 1px solid rgba(195, 212, 233, 0.4);
+
+                gap: 1rem;
+                width: 17rem;
+                align-items: start;
+                justify-content: space-between;
+                padding: 2rem 0;
+            }
+
+            .sidebarNav {
+                color: gray;
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                font-weight: 600;
+
+                .active {
+                    color: blue;
+                    text-decoration: none;
+                }
+                a {
+                    text-decoration: none;
+                    color: #90a3bf;
+                }
+
+                li {
+                    font-size: 1.3rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+
+                @media (min-width: 900px) {
+                }
+            }
+        }
+        .logoutButton {
+            display: flex;
+            font-size: 1.3rem;
+            font-weight: 600;
+            align-items: center;
+            gap: 0.5rem;
+            color: #90a3bf;
+        }
+
+        .show {
+            display: none;
+            transition: all 1s;
+
+            @media (min-width: 900px) {
+                display: flex;
+            }
+        }
+
+        .hideWeb {
+            @media (min-width: 900px) {
+                display: none;
+            }
+        }
+
+        .adminPage {
+            //background-color: red;
+            width: 100%;
+            overflow-y: scroll;
+
+            padding: 1.5rem;
+
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            @media (min-width: 900px) {
+                background-color: #f6f7f9;
+                border-right: 1px solid rgba(195, 212, 233, 0.4);
+            }
+        }
+    }
 }
