@@ -81,7 +81,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 </li>
               </NavLink>
               <NavLink
-                to="/"
+                to="/admin/add"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
