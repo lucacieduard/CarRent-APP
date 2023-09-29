@@ -1,4 +1,5 @@
 import AdminLayout from "../../layout/AdminLayout/AdminLayout";
+import "./Dashobard.scss";
 
 const Admin = () => {
   return (

@@ -58,11 +58,34 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
-                font-weight: 600;
+                font-weight: 400;
+
+                @media (min-width: 900px) {
+                    width: 100%;
+                    padding-right: 1.75rem;
+                }
 
                 .active {
-                    color: blue;
                     text-decoration: none;
+                    @media (min-width: 900px) {
+                        width: 100%;
+                        border-radius: 0.625rem;
+                        animation-name: linkAnim;
+                        animation-duration: 0.5s;
+                        animation-iteration-count: 1;
+                        animation-fill-mode: forwards;
+                        @keyframes linkAnim {
+                            from {
+                                padding-left: 0;
+                                background-color: white;
+                            }
+                            to {
+                                color: white;
+                                padding-left: 15px;
+                                background-color: #3563e9;
+                            }
+                        }
+                    }
                 }
                 a {
                     text-decoration: none;
@@ -74,9 +97,7 @@
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
-                }
-
-                @media (min-width: 900px) {
+                    padding: 0.5rem 0;
                 }
             }
         }
@@ -87,6 +108,11 @@
             align-items: center;
             gap: 0.5rem;
             color: #90a3bf;
+
+            &:hover {
+                cursor: pointer;
+                color: #3563e9;
+            }
         }
 
         .show {
@@ -105,7 +131,6 @@
         }
 
         .adminPage {
-            //background-color: red;
             width: 100%;
             overflow-y: scroll;
             -ms-overflow-style: none; /* IE and Edge */

@@ -35,7 +35,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
             />
             <ul className="sidebarNav">
               <NavLink
-                to="/"
+                to="/admin"
+                end
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
@@ -47,7 +48,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
               </NavLink>
 
               <NavLink
-                to="/"
+                to="/admin/cars"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
@@ -59,7 +60,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
               </NavLink>
 
               <NavLink
-                to="/admin"
+                to="/admin/users"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
@@ -70,7 +71,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 </li>
               </NavLink>
               <NavLink
-                to="/"
+                to="/admin/transactions"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }

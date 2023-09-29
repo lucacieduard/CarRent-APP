@@ -6,8 +6,11 @@ import Cars from "./pages/Cars/Cars";
 import CarPage from "./pages/Car/CarPage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Admin from "./pages/Admin/Admin";
+import DashBoard from "./pages/Admin/DashBoard";
 import AddCar from "./pages/AddCar/AddCar";
+import AdminCars from "./pages/AdminCars/AdminCars";
+import AdminTransactions from "./pages/AdminTransactions/AdminTransactions";
+import AdminUsers from "./pages/AdminUsers/AdminUsers";
 function App() {
   // TODO protect routes 16m
   return (
@@ -22,8 +25,11 @@ function App() {
           <Route path=":id" element={<CarPage />} />
         </Route>
         <Route path="admin">
-          <Route index element={<Admin />} />
+          <Route index element={<DashBoard />} />
           <Route path="add" element={<AddCar />} />
+          <Route path="cars" element={<AdminCars />} />
+          <Route path="transactions" element={<AdminTransactions />} />
+          <Route path="users" element={<AdminUsers />} />
         </Route>
         <Route path="*" element={<h1>Not found!</h1>} />
       </Routes>
