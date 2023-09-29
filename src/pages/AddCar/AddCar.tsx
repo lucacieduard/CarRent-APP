@@ -50,6 +50,16 @@ const AddCar = () => {
               <input type="file" src="" alt="" />
             </div>
           </div>
+          <div className="checkbox">
+            <div>
+              <input type="checkbox" name="recomandation" id="recomandation" />
+              <label htmlFor="recomandation">Recomandation</label>
+            </div>
+            <div>
+              <input type="checkbox" name="popular" id="" />
+              <label htmlFor="popular">Popular</label>
+            </div>
+          </div>
           <button className="button addbtn">Add Car</button>
         </form>
       </div>
