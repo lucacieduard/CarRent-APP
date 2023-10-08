@@ -5,10 +5,12 @@ import { Car } from "../../types/Car";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../../firebase";
 import { doc, setDoc } from "firebase/firestore";
-
 import { v4 as uuidv4 } from "uuid";
 const AddCar = () => {
-  const [formData, setFormData] = useState({} as Car);
+  const [formData, setFormData] = useState({
+    recomandation: false,
+    popular: false,
+  } as Car);
   const [links, setLinks] = useState(Array(3).fill(""));
 
   const upload = async (file: File, uid: string) => {
@@ -22,6 +24,7 @@ const AddCar = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(formData);
     const newLinks = Array(3).fill("");
     const uid = uuidv4();
     try {
@@ -182,7 +185,6 @@ const AddCar = () => {
           <div className="checkbox">
             <div>
               <input
-                required
                 type="checkbox"
                 name="recomandation"
                 id="recomandation"
@@ -197,7 +199,6 @@ const AddCar = () => {
             </div>
             <div>
               <input
-                required
                 type="checkbox"
                 name="popular"
                 id=""
