@@ -11,8 +11,16 @@ import AddCar from "./pages/AddCar/AddCar";
 import AdminCars from "./pages/AdminCars/AdminCars";
 import AdminTransactions from "./pages/AdminTransactions/AdminTransactions";
 import AdminUsers from "./pages/AdminUsers/AdminUsers";
+import { useContext, useEffect } from "react";
+import { CarsContext } from "./context/carsContext";
 function App() {
   // TODO protect routes 16m
+
+  const carsContext = useContext(CarsContext);
+
+  useEffect(() => {
+    carsContext.getCars();
+  }, []);
   return (
     <div className="app">
       <NavBar />
