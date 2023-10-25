@@ -12,7 +12,7 @@ const AdminCars = () => {
 
   return (
     <AdminLayout>
-      <div style={{ width: "100%", maxHeight: "500px" }}>
+      <div style={{ width: "99%", maxHeight: "500px" }}>
         <ThemeProvider theme={createTheme()}>
           <MaterialTable
             columns={[
@@ -42,8 +42,11 @@ const AdminCars = () => {
               {
                 icon: "edit",
                 tooltip: "Edit Car",
-                onClick: (_event, rowData) =>
-                  navigate(`/admin/add?id=${rowData.uid}`),
+                onClick: (_event, rowData) => {
+                  if (!Array.isArray(rowData) && rowData.uid) {
+                    navigate(`/admin/add?id=${rowData.uid}`);
+                  }
+                },
                 position: "row",
               },
               {
