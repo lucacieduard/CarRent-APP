@@ -24,7 +24,6 @@ const AddCar = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
     const newLinks = Array(3).fill("");
     const uid = uuidv4();
     try {

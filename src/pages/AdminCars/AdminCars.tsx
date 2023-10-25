@@ -9,7 +9,7 @@ import { Car } from "../../types/Car";
 const AdminCars = () => {
   const navigate = useNavigate();
   const carsContext = useContext(CarsContext);
-  console.log(carsContext);
+
 
   return (
     <AdminLayout>
