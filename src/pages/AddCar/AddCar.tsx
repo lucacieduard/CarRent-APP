@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AdminLayout from "../../layout/AdminLayout/AdminLayout";
 import "./AddCar.scss";
 import { Car } from "../../types/Car";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { CarsContext } from "../../context/carsContext";
+import { doc, updateDoc } from "firebase/firestore";
 const AddCar = () => {
   const [formData, setFormData] = useState({
     recomandation: false,
     popular: false,
   } as Car);
   const [links, setLinks] = useState(Array(3).fill(""));
-
+  const [car, setCar] = useState<boolean>(false);
+  const carContext = useContext(CarsContext);
+  const searchParams = useSearchParams();
+  console.log(searchParams);
+  const navigate = useNavigate();
   const upload = async (file: File, uid: string) => {
     const storageRef = ref(storage, `Cars/${uid}/${String(Math.random())}`);
     const uploadTask = await uploadBytesResumable(storageRef, file);
@@ -37,6 +44,7 @@ const AddCar = () => {
         svg: newLinks[0],
         img: [newLinks[1], newLinks[2]],
       });
+      navigate("/admin/cars");
     } catch (error) {
       console.log(error);
     }
@@ -50,10 +58,31 @@ const AddCar = () => {
       };
     });
   };
+
+  useEffect(() => {
+    const carId = searchParams[0].get("id");
+    if (carId && carContext.cars.length > 0) {
+      const car = carContext.cars.find((car) => car.uid === carId);
+      if (car) {
+        setFormData(car);
+        setCar(true);
+      }
+    }
+  }, []);
+  const updateCarHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const washingtonRef = doc(db, "cars", formData.uid);
+    await updateDoc(washingtonRef, formData);
+    carContext.refresh();
+    navigate("/admin/cars");
+  };
   return (
     <AdminLayout>
       <div className="addContainer">
-        <form className="addForm" onSubmit={submitHandler}>
+        <form
+          className="addForm"
+          onSubmit={car ? updateCarHandler : submitHandler}
+        >
           <div className="addInputs">
             <input
               type="text"
@@ -61,6 +90,7 @@ const AddCar = () => {
               onChange={changeHandler}
               name="carName"
               required
+              value={formData.carName}
             />
             <input
               type="number"
@@ -69,6 +99,7 @@ const AddCar = () => {
               min={0}
               onChange={changeHandler}
               required
+              value={formData.price}
             />
             <input
               type="number"
@@ -77,6 +108,7 @@ const AddCar = () => {
               min={0}
               onChange={changeHandler}
               required
+              value={formData.gasoline}
             />
           </div>
           <div className="addSelectable">
@@ -88,6 +120,7 @@ const AddCar = () => {
                 setFormData({ ...formData, [e.target.name]: e.target.value })
               }
               required
+              value={formData.carType}
             >
               <option value="none">--- Choose ---</option>
 
@@ -105,12 +138,14 @@ const AddCar = () => {
               onChange={(e) =>
                 setFormData({ ...formData, [e.target.name]: e.target.value })
               }
+              value={formData.steering}
               required
             >
               <option value="none">--- Choose ---</option>
               <option value="manual">Manual</option>
             </select>
             <select
+              value={formData.capacity}
               required
               name="capacity"
               id="carCapacity"
@@ -131,6 +166,7 @@ const AddCar = () => {
             </select>
           </div>
           <textarea
+            value={formData.description}
             required
             name="description"
             id="description"
@@ -145,7 +181,7 @@ const AddCar = () => {
             <div className="addImgContainer">
               <p>SVG Car Image</p>
               <input
-                required
+                required={car ? undefined : true}
                 type="file"
                 name="svg"
                 src=""
@@ -163,7 +199,7 @@ const AddCar = () => {
             <div className="addImgContainer">
               <p>Car Image</p>
               <input
-                required
+                required={car ? undefined : true}
                 type="file"
                 src=""
                 alt=""
@@ -184,6 +220,7 @@ const AddCar = () => {
           <div className="checkbox">
             <div>
               <input
+                checked={formData.recomandation}
                 type="checkbox"
                 name="recomandation"
                 id="recomandation"
@@ -198,6 +235,7 @@ const AddCar = () => {
             </div>
             <div>
               <input
+                checked={formData.popular}
                 type="checkbox"
                 name="popular"
                 id=""
@@ -211,7 +249,9 @@ const AddCar = () => {
               <label htmlFor="popular">Popular</label>
             </div>
           </div>
-          <button className="button addbtn">Add Car</button>
+          <button className="button addbtn">
+            {car ? "Update Car" : "Add Car"}
+          </button>
         </form>
       </div>
     </AdminLayout>
