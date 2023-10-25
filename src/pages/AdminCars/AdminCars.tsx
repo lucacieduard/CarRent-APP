@@ -10,6 +10,7 @@ const AdminCars = () => {
   const navigate = useNavigate();
   const carsContext = useContext(CarsContext);
 
+
   return (
     <AdminLayout>
       <div style={{ width: "99%", maxHeight: "500px" }}>
