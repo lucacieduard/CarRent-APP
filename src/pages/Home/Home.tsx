@@ -5,11 +5,7 @@ import "./Home.scss";
 import Recomandations from "../../components/Recomandations/Recomandations";
 import Footer from "../../components/Footer/Footer";
 import FilterSection from "../../components/FilterSection/FilterSection";
-import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
 const Home = () => {
-  const authCtx = useContext(AuthContext);
-  console.log(authCtx);
   return (
     <div className="bg">
       <FullPageLayout>

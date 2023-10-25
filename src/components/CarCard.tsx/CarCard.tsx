@@ -45,8 +45,7 @@ const CarCard = (props: Props) => {
           $99.00/<span className="day">day</span>{" "}
         </p>
         <Link to={`/cars/dummyID`}>
-        
-        <button className="rentNow">Rental Now</button>
+          <button className="rentNow">Rental Now</button>
         </Link>
       </div>
     </div>
