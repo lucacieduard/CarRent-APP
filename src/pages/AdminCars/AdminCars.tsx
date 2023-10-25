@@ -13,6 +13,7 @@ const AdminCars = () => {
 
   return (
     <AdminLayout>
+      <p>Test</p>
       <div style={{ width: "99%", maxHeight: "500px" }}>
         <ThemeProvider theme={createTheme()}>
           <MaterialTable
