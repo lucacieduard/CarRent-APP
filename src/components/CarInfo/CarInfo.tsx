@@ -3,8 +3,15 @@ import "./CarInfo.scss";
 import rectangle from "/rectangle.png";
 import { useState } from "react";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-const CarInfo = () => {
-  const images = ["/image_8.png", "/interior1.png", "/interior2.png"];
+import { Car } from "../../types/Car";
+
+type Params = {
+  car: Car;
+};
+
+const CarInfo = (props: Params) => {
+  console.log(props?.car);
+  const images = [props?.car.svg, ...props.car.img];
   const [imgId, setImgId] = useState(0);
   const changeImage = (index: number) => {
     setImgId(index);
@@ -31,6 +38,7 @@ const CarInfo = () => {
             if (index === 0)
               return (
                 <div
+                  key={index}
                   className={`secondaryImgC first ${
                     index === imgId ? "active" : ""
                   }`}
@@ -47,6 +55,7 @@ const CarInfo = () => {
 
             return (
               <div
+                key={index}
                 className={`secondaryImgC ${index === imgId ? "active" : ""}`}
                 onClick={() => changeImage(index)}
               >
@@ -59,37 +68,35 @@ const CarInfo = () => {
       <div className="infoContainer">
         <div className="infoContainerHeader">
           <div className="headerInfo">
-            <h2 className="infoTitle">Nissan GT - R</h2>
+            <h2 className="infoTitle">{props.car.carName}</h2>
             <span>stele</span>
           </div>
           <FontAwesomeIcon icon={faHeart} className="heart" />
         </div>
-        <p className="description">
-          NISMO has become the embodiment of Nissan's outstanding performance,
-          inspired by the most unforgiving proving ground, the "race track".
-        </p>
+        <p className="description">{props.car.description}</p>
         <div className="infoList">
           <div className="infoListLeft">
             <p className="title">
-              Type Car <span className="value">Sport</span>
+              Type Car <span className="value">{props.car.carType}</span>
             </p>
             <p className="title">
-              Steering <span className="value">Manual</span>
+              Steering <span className="value">{props.car.steering}</span>
             </p>
           </div>
           <div className="infoListRight">
             <p className="title">
-              Capacity <span className="value">2 Person</span>
+              Capacity{" "}
+              <span className="value">{props.car.capacity} Person</span>
             </p>
             <p className="title">
-              Gasoline <span className="value">70 L</span>
+              Gasoline <span className="value">{props.car.gasoline} L</span>
             </p>
           </div>
         </div>
 
         <div className="infoFooter">
           <span className="price">
-            $80.00 <span className="per">/day</span>
+            ${props.car.price} <span className="per">/day</span>
           </span>
           <button className="rentNow">Rent Now</button>
         </div>

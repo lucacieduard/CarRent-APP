@@ -15,9 +15,9 @@ import { useContext, useEffect } from "react";
 import { CarsContext } from "./context/carsContext";
 function App() {
   // TODO protect routes 16m
+  //TODO Loading sistem
 
   const carsContext = useContext(CarsContext);
-
   useEffect(() => {
     carsContext.getCars();
   }, []);

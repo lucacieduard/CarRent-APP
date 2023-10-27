@@ -1,5 +1,7 @@
 import "./Review.scss";
 
+// TODO review sistem
+
 const Review = () => {
   return (
     <div className="review">
