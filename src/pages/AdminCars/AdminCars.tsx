@@ -5,6 +5,10 @@ import { CarsContext } from "../../context/carsContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Car } from "../../types/Car";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const AdminCars = () => {
   const navigate = useNavigate();
@@ -28,6 +32,34 @@ const AdminCars = () => {
                 render: (rowData) => <p>${rowData.price}</p>,
               },
               { title: "Car Type", field: "carType" },
+              {
+                title: "Recomandation",
+                field: "recomandation",
+                render: (rowData) => (
+                  <p>
+                    {rowData.recomandation ? (
+                      <FontAwesomeIcon icon={faCheck} color="green" />
+                    ) : (
+                      <FontAwesomeIcon icon={faX} color="red" />
+                    )}
+                  </p>
+                ),
+                align: "center",
+              },
+              {
+                title: "Popular",
+                field: "popular",
+                render: (rowData) => (
+                  <p>
+                    {rowData.popular ? (
+                      <FontAwesomeIcon icon={faCheck} color="green" />
+                    ) : (
+                      <FontAwesomeIcon icon={faX} color="red" />
+                    )}
+                  </p>
+                ),
+                align: "center",
+              },
             ]}
             data={carsContext.cars as Car[]}
             title="Cars"
@@ -52,7 +84,22 @@ const AdminCars = () => {
               {
                 icon: "delete",
                 tooltip: "Delete Car",
-                onClick: () => carsContext.refresh(),
+                onClick: async (_event, rowData) => {
+                  if (!Array.isArray(rowData) && rowData.uid) {
+                    await deleteDoc(doc(db, "cars", rowData.uid));
+                  }
+                  carsContext.refresh();
+                },
+                position: "row",
+              },
+              {
+                icon: "preview",
+                tooltip: "Preview Car",
+                onClick: (_event, rowData) => {
+                  if (!Array.isArray(rowData) && rowData.uid) {
+                    navigate(`/cars/${rowData.uid}`);
+                  }
+                },
                 position: "row",
               },
             ]}
