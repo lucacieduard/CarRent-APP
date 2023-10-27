@@ -1,8 +1,14 @@
+import { ReviewT } from "../../types/Car";
 import "./Review.scss";
+
+type Props = {
+  review: ReviewT;
+};
 
 // TODO review sistem
 
-const Review = () => {
+const Review = (props: Props) => {
+  // TODO users context to fill the review
   return (
     <div className="review">
       <img

@@ -1,3 +1,9 @@
+export type ReviewT = {
+    userId : string,
+    description : string,
+    rating : number,
+}
+
 export type Car ={
     carName: string,
     description : string, 
@@ -5,7 +11,7 @@ export type Car ={
     gasoline : string,
     images : string[],
     price: number,
-    reviews:[],
+    reviews:ReviewT[],
     carType : "sport" | "suv" | "sedan" | "coupe"| "hatchback" | "mpv",
     steering:"manual",
     recomandation : boolean,

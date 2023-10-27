@@ -1,6 +1,5 @@
 import CarInfo from "../../components/CarInfo/CarInfo";
 import Footer from "../../components/Footer/Footer";
-import Review from "../../components/Review/Review";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import SideBarPage from "../../layout/SideBarPage/SideBarPage";
 import "./CarPage.scss";
@@ -9,17 +8,12 @@ import { useParams } from "react-router-dom";
 import { CarsContext } from "../../context/carsContext";
 import { useContext, useEffect, useState } from "react";
 import { Car } from "../../types/Car";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { AuthContext } from "../../context/authContext";
+import Reviews from "../../components/Review/Reviews";
 
 const CarPage = () => {
   const [car, setCar] = useState<Car | null | undefined>(null);
   const params = useParams();
   const carContext = useContext(CarsContext);
-  const userContext = useContext(AuthContext);
-  console.log(carContext);
-  console.log(userContext.user);
 
   useEffect(() => {
     const mycar = carContext.cars.find((car) => car.uid === params.id);
@@ -35,21 +29,7 @@ const CarPage = () => {
         ) : (
           <>
             <CarInfo car={car} />
-            <div className="reviewsContainer">
-              <h2 className="reviewsTitle">Reviews</h2>{" "}
-              <span className="reviewsLength">13</span>
-              <div className="reviews">
-                {/* TODO textarea for connnected users */}
-                {userContext.user && <textarea />}
-                <Review />
-                <Review />
-                <Review />
-                <button className="showMore">
-                  Show All{" "}
-                  <FontAwesomeIcon icon={faChevronDown} className="icon" />
-                </button>
-              </div>
-            </div>
+            <Reviews car={car} />
           </>
         )}
 
