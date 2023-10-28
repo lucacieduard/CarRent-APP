@@ -62,27 +62,39 @@ const Reviews = (props: Props) => {
                 name="rating"
                 onChange={changeHandler}
               />
-              <button className="button" onClick={addCar}>
-                Add Comment
+              <button
+                className="button"
+                onClick={addCar}
+                style={{ cursor: "pointer" }}
+              >
+                Add Review
               </button>
             </div>
           </div>
         )}
-        {props.car.reviews.length > 0 && showAll
-          ? props.car.reviews.map((review) => {
+        {props.car.reviews.length > 0 ? (
+          showAll ? (
+            props.car.reviews.map((review) => {
               return <Review review={review} />;
             })
-          : props.car.reviews.slice(0, 3).map((review) => {
+          ) : (
+            props.car.reviews.slice(0, 3).map((review) => {
               return <Review review={review} />;
-            })}
+            })
+          )
+        ) : (
+          <p>No reviews yet</p>
+        )}
 
-        <button
-          className="showMore"
-          onClick={() => setShowAll((prev) => !prev)}
-        >
-          {showAll ? "Show less" : "Show All"}{" "}
-          <FontAwesomeIcon icon={faChevronDown} className="icon" />
-        </button>
+        {props.car.reviews.length > 3 && (
+          <button
+            className="showMore"
+            onClick={() => setShowAll((prev) => !prev)}
+          >
+            {showAll ? "Show less" : "Show All"}{" "}
+            <FontAwesomeIcon icon={faChevronDown} className="icon" />
+          </button>
+        )}
       </div>
     </div>
   );
