@@ -15,17 +15,17 @@ type Props = {
 
 const Reviews = (props: Props) => {
   const carsContext = useContext(CarsContext);
-  const [review, setReview] = useState({} as ReviewT);
+  const [review, setReview] = useState<ReviewT | null>(null);
   const userContext = useContext(AuthContext);
   const [showAll, setShowAll] = useState<boolean>(false);
   const changeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setReview({ ...review, [name]: value });
+    setReview({ ...review, [name]: value } as ReviewT);
   };
 
-  const addCar = async () => {
+  const addReview = async () => {
     const ref = doc(db, "cars", props.car.uid);
 
     await updateDoc(ref, {
@@ -36,8 +36,7 @@ const Reviews = (props: Props) => {
       }),
     });
 
-    setReview({} as ReviewT);
-
+    setReview(null);
     carsContext.refresh();
   };
   return (
@@ -49,13 +48,13 @@ const Reviews = (props: Props) => {
           <div className="addComment">
             <textarea
               name="description"
-              value={review.description}
+              value={review?.description || ""}
               onChange={changeHandler}
             />
             <div className="rating">
               <label>Rating : </label>
               <input
-                value={review.rating}
+                value={review?.rating || 1}
                 type="number"
                 min={1}
                 max={5}
@@ -64,7 +63,7 @@ const Reviews = (props: Props) => {
               />
               <button
                 className="button"
-                onClick={addCar}
+                onClick={addReview}
                 style={{ cursor: "pointer" }}
               >
                 Add Review
