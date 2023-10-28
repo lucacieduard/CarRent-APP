@@ -44,6 +44,7 @@ const AddCar = () => {
         svg: newLinks[0],
         img: [newLinks[1], newLinks[2]],
         reviews: [],
+        admin: false,
       });
       navigate("/admin/cars");
     } catch (error) {

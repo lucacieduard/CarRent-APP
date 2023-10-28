@@ -5,5 +5,6 @@ export type User = {
     email: string;
     fileURL?: string;
     administrator: boolean;
-    uid: string
+    uid: string;
+    admin: boolean;
 }
