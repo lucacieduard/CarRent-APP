@@ -46,6 +46,7 @@ const CarInfo = (props: Params) => {
                     backgroundImage: `url(${rectangle})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
+                    cursor: "pointer",
                   }}
                   onClick={() => changeImage(index)}
                 >
@@ -58,6 +59,7 @@ const CarInfo = (props: Params) => {
                 key={index}
                 className={`secondaryImgC ${index === imgId ? "active" : ""}`}
                 onClick={() => changeImage(index)}
+                style={{ cursor: "pointer" }}
               >
                 <img src={img} alt="" className="carImg" />
               </div>

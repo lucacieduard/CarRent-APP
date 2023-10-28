@@ -68,7 +68,7 @@ const Reviews = (props: Props) => {
             </div>
           </div>
         )}
-        {showAll
+        {props.car.reviews.length > 0 && showAll
           ? props.car.reviews.map((review) => {
               return <Review review={review} />;
             })
