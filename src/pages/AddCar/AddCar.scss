@@ -114,5 +114,10 @@
             width: 150px;
             align-self: flex-end;
         }
+
+        .pending {
+            cursor: not-allowed;
+            background-color: #90a3bf;
+        }
     }
 }

@@ -16,6 +16,7 @@ const AddCar = () => {
   } as Car);
   const [links, setLinks] = useState(Array(3).fill(""));
   const [car, setCar] = useState<boolean>(false);
+  const [pending, setPending] = useState<boolean>(false);
   const carContext = useContext(CarsContext);
   const searchParams = useSearchParams();
   console.log(searchParams);
@@ -34,6 +35,7 @@ const AddCar = () => {
     const newLinks = Array(3).fill("");
     const uid = uuidv4();
     try {
+      setPending(true);
       for (const [index, file] of links.entries()) {
         newLinks[index] = await upload(file, uid);
       }
@@ -46,9 +48,12 @@ const AddCar = () => {
         reviews: [],
         admin: false,
       });
+      carContext.refresh();
       navigate("/admin/cars");
     } catch (error) {
       console.log(error);
+    } finally {
+      setPending(false);
     }
   };
 
@@ -72,11 +77,18 @@ const AddCar = () => {
     }
   }, []);
   const updateCarHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const washingtonRef = doc(db, "cars", formData.uid);
-    await updateDoc(washingtonRef, formData);
-    carContext.refresh();
-    navigate("/admin/cars");
+    try {
+      setPending(true);
+      e.preventDefault();
+      const washingtonRef = doc(db, "cars", formData.uid);
+      await updateDoc(washingtonRef, formData);
+      carContext.refresh();
+      navigate("/admin/cars");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setPending(false);
+    }
   };
   return (
     <AdminLayout>
@@ -251,7 +263,10 @@ const AddCar = () => {
               <label htmlFor="popular">Popular</label>
             </div>
           </div>
-          <button className="button addbtn">
+          <button
+            className={`button addbtn ${pending && "pending"}`}
+            disabled={pending}
+          >
             {car ? "Update Car" : "Add Car"}
           </button>
         </form>
