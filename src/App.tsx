@@ -13,12 +13,15 @@ import AdminTransactions from "./pages/AdminTransactions/AdminTransactions";
 import AdminUsers from "./pages/AdminUsers/AdminUsers";
 import { useContext, useEffect } from "react";
 import { CarsContext } from "./context/carsContext";
+import { UsersContext } from "./context/usersContext";
 function App() {
   // TODO protect routes 16m
   //TODO Loading sistem
 
   const carsContext = useContext(CarsContext);
+  const usersContext = useContext(UsersContext);
   useEffect(() => {
+    usersContext.getUsers();
     carsContext.getCars();
   }, []);
   return (
