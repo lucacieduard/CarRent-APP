@@ -60,6 +60,11 @@ const AdminCars = () => {
                 ),
                 align: "center",
               },
+              {
+                title: "Reviews",
+                render: (rowData) => <p>{rowData.reviews.length}</p>,
+                align: "center",
+              },
             ]}
             data={carsContext.cars as Car[]}
             title="Cars"
@@ -82,6 +87,16 @@ const AdminCars = () => {
                 position: "row",
               },
               {
+                icon: "preview",
+                tooltip: "Preview Car",
+                onClick: (_event, rowData) => {
+                  if (!Array.isArray(rowData) && rowData.uid) {
+                    navigate(`/cars/${rowData.uid}`);
+                  }
+                },
+                position: "row",
+              },
+              {
                 icon: "delete",
                 tooltip: "Delete Car",
                 onClick: async (_event, rowData) => {
@@ -92,22 +107,14 @@ const AdminCars = () => {
                 },
                 position: "row",
               },
-              {
-                icon: "preview",
-                tooltip: "Preview Car",
-                onClick: (_event, rowData) => {
-                  if (!Array.isArray(rowData) && rowData.uid) {
-                    navigate(`/cars/${rowData.uid}`);
-                  }
-                },
-                position: "row",
-              },
             ]}
             options={{
               actionsColumnIndex: -1,
               doubleHorizontalScroll: true,
               maxBodyHeight: 500,
               emptyRowsWhenPaging: false,
+              columnsButton: true,
+              detailPanelColumnAlignment: "left",
             }}
           />
         </ThemeProvider>
