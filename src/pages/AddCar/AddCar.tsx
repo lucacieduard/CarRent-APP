@@ -43,6 +43,7 @@ const AddCar = () => {
         uid: uid,
         svg: newLinks[0],
         img: [newLinks[1], newLinks[2]],
+        reviews: [],
       });
       navigate("/admin/cars");
     } catch (error) {

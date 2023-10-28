@@ -1,5 +1,8 @@
+import { useContext, useEffect, useState } from "react";
 import { ReviewT } from "../../types/Car";
 import "./Review.scss";
+import { UsersContext } from "../../context/usersContext";
+import { User } from "../../types/Auth";
 
 type Props = {
   review: ReviewT;
@@ -9,31 +12,49 @@ type Props = {
 
 const Review = (props: Props) => {
   // TODO users context to fill the review
+
+  const [user, setUser] = useState<User | undefined>({} as User);
+
+  const usersContext = useContext(UsersContext);
+  console.log(props.review);
+
+  useEffect(() => {
+    const user = usersContext.users.find(
+      (user) => user.uid === props.review.user
+    );
+    setUser(user);
+  }, [usersContext.users]);
+
+  const date = new Date(props.review.date);
+
   return (
     <div className="review">
       <img
-        src="/profile.png"
+        src={user?.fileURL}
         alt="Reviewer profile picture"
         className="profilePic"
       />
 
       <div className="reviewContent">
         <div className="reviewHeader">
-          <h4 className="reviewerName">Alex Stanton</h4>
-          <span className="postDate">21 july 2022</span>
+          <h4 className="reviewerName">
+            {user?.firstName} {user?.lastName}
+          </h4>
+          <span className="postDate">
+            {date.getDate()} -{" "}
+            {date.getMonth() + 1 < 10
+              ? `0${date.getMonth() + 1}`
+              : date.getMonth() + 1}{" "}
+            - {date.getFullYear()}
+          </span>
         </div>
 
         <div className="reviewInfo">
-          <span className="reviewerTitle">CEO at Amazon</span>
-          <span className="rating">3 stele</span>
+          <span className="reviewerTitle">{user?.title}</span>
+          <span className="rating">{props.review.rating} stele</span>
         </div>
 
-        <p className="description">
-          We are very happy with the service from the MORENT App. Morent has a
-          low price and also a large variety of cars with good and comfortable
-          facilities. In addition, the service provided by the officers is also
-          very friendly and very polite.
-        </p>
+        <p className="description">{props.review.description}</p>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 export type ReviewT = {
-    userId : string,
+    user : string,
     description : string,
     rating : number,
+    date : Date
 }
 
 export type Car ={

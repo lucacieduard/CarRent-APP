@@ -17,6 +17,7 @@ const Reviews = (props: Props) => {
   const carsContext = useContext(CarsContext);
   const [review, setReview] = useState({} as ReviewT);
   const userContext = useContext(AuthContext);
+  const [showAll, setShowAll] = useState<boolean>(false);
   const changeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,6 +32,7 @@ const Reviews = (props: Props) => {
       reviews: arrayUnion({
         ...review,
         user: userContext.user.uid,
+        date: Date.now(),
       }),
     });
 
@@ -66,12 +68,20 @@ const Reviews = (props: Props) => {
             </div>
           </div>
         )}
-        {props.car.reviews?.map((review, index) => (
-          <Review key={index} review={review} />
-        ))}
+        {showAll
+          ? props.car.reviews.map((review) => {
+              return <Review review={review} />;
+            })
+          : props.car.reviews.slice(0, 3).map((review) => {
+              return <Review review={review} />;
+            })}
 
-        <button className="showMore">
-          Show All <FontAwesomeIcon icon={faChevronDown} className="icon" />
+        <button
+          className="showMore"
+          onClick={() => setShowAll((prev) => !prev)}
+        >
+          {showAll ? "Show less" : "Show All"}{" "}
+          <FontAwesomeIcon icon={faChevronDown} className="icon" />
         </button>
       </div>
     </div>
