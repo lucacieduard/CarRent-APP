@@ -4,33 +4,49 @@ import "./Cars.scss";
 import CarCard from "../../components/CarCard.tsx/CarCard";
 import FilterSection from "../../components/FilterSection/FilterSection";
 import SideBarPage from "../../layout/SideBarPage/SideBarPage";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CarsContext } from "../../context/carsContext";
 
 const Cars = () => {
   const [carsNumber, setCarsNumber] = useState(8);
+  const carsContext = useContext(CarsContext);
   const clickHandler = (add: boolean) => {
-    if (add) {
+    if (add && carsNumber > carsContext.cars.length) return;
+    if (add && carsNumber + 8 > carsContext.cars.length) {
       setCarsNumber((prev) => prev + 8);
-    } else {
+    }
+
+    if (!add && carsNumber - 8 > 0) {
       setCarsNumber((prev) => prev - 8);
     }
   };
+
   return (
     <div className="bg">
       <SideBarPage buttons={true}>
         <FilterSection />
         <div className="carsContainer">
-          {Array(carsNumber)
-            .fill(0)
-            .map((_car, index) => (
-              <CarCard key={index} recomandation={true} />
-            ))}
+          {carsContext.cars.slice(0, carsNumber).map((car, index) => {
+            return <CarCard key={index} recomandation={false} car={car} />;
+          })}
         </div>
 
         <div className="buttons">
-          <button onClick={() => clickHandler(true)}>Show more car</button>
+          {carsNumber < carsContext.cars.length && (
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => clickHandler(true)}
+            >
+              Show more cars
+            </button>
+          )}
           {carsNumber > 8 && (
-            <button onClick={() => clickHandler(false)}>Show less car</button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => clickHandler(false)}
+            >
+              Show less cars
+            </button>
           )}
         </div>
       </SideBarPage>

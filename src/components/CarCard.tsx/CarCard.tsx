@@ -3,21 +3,23 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import "./CarCard.scss";
 import { faGasPump, faO, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { Car } from "../../types/Car";
 
 type Props = {
   recomandation: boolean;
+  car: Car;
 };
 const CarCard = (props: Props) => {
   return (
     <div className={`cardCar ${props.recomandation ? "recCardCar" : ""}`}>
       <div className="cardHeader">
-        <span className="carName">Koenigsegg</span>
+        <span className="carName">{props.car.carName}</span>
         <FontAwesomeIcon icon={faHeart} color="gray" className="heart" />
       </div>
-      <span className="carType">Sport</span>
+      <span className="carType">{props.car.carType}</span>
       <div className={`cardMain ${props.recomandation ? "recCardMain" : ""}`}>
         <img
-          src="/image_7.png"
+          src={props.car.svg}
           className={`mainImg ${props.recomandation ? "recMainImg" : ""}`}
         />
         <ul
@@ -27,24 +29,24 @@ const CarCard = (props: Props) => {
         >
           <li className="spec">
             <FontAwesomeIcon icon={faGasPump} className="specIcon" />
-            <span className="specText">90 L</span>
+            <span className="specText">{props.car.gasoline} L</span>
           </li>
           <li className="spec">
             <FontAwesomeIcon icon={faO} className="specIcon" />
-            <span className="specText">Manual</span>
+            <span className="specText">{props.car.steering}</span>
           </li>
           <li className="spec">
             <FontAwesomeIcon icon={faUserGroup} className="specIcon" />
-            <span className="specText">2 People</span>
+            <span className="specText">{props.car.capacity} People</span>
           </li>
         </ul>
       </div>
 
       <div className="cardFooter">
         <p className="price">
-          $99.00/<span className="day">day</span>{" "}
+          ${props.car.price}/<span className="day">day</span>{" "}
         </p>
-        <Link to={`/cars/dummyID`}>
+        <Link to={`/cars/${props.car.uid}`}>
           <button className="rentNow">Rental Now</button>
         </Link>
       </div>

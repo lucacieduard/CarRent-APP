@@ -21,7 +21,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 1.25rem;
-
+        align-items: center;
         @media (min-width: 550px) {
             flex-direction: row;
             justify-content: space-between;

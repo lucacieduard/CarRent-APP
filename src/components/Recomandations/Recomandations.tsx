@@ -1,31 +1,28 @@
+import { Link } from "react-router-dom";
+import { CarsContext } from "../../context/carsContext";
 import CarCard from "../CarCard.tsx/CarCard";
 import "./Recomandations.scss";
-import { useState } from "react";
+import { useContext } from "react";
 
 const Recomandations = () => {
-  const [carsNumber, setCarsNumber] = useState<number>(8);
+  const carsContext = useContext(CarsContext);
 
-  const clickHandler = (add: boolean): void => {
-    setCarsNumber((prev) => {
-      if (add) return prev + 8;
-      else return prev - 8;
-    });
-  };
+  const recomandations = carsContext.cars
+    .filter((car) => car.recomandation)
+    .slice(0, 8);
+
   return (
     <div className="recomandations container_w">
       <span className="title">Recomendation Car</span>
       <div className="recomandationCars">
-        {Array(carsNumber)
-          .fill(0)
-          .map((_dummy, index) => {
-            return <CarCard key={index} recomandation={true} />;
-          })}
+        {recomandations.map((car, index) => {
+          return <CarCard key={index} recomandation={true} car={car} />;
+        })}
       </div>
       <div className="buttons">
-        <button onClick={() => clickHandler(true)}>Show more car</button>
-        {carsNumber > 8 && (
-          <button onClick={() => clickHandler(false)}>Show less car</button>
-        )}
+        <Link to={"/cars"}>
+          <button style={{ cursor: "pointer" }}>Show more cars</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import CarCard from "../CarCard.tsx/CarCard";
 import "./PopularCars.scss";
+import { useContext } from "react";
+import { CarsContext } from "../../context/carsContext";
 
 type Props = {
   title: string;
 };
 
 const PopularCars = (props: Props) => {
+  const carsContext = useContext(CarsContext);
+
+  let popularCars = carsContext.cars.filter((car) => car.popular);
+  popularCars = popularCars.slice(0, 4);
+
+  if (!popularCars) return <p>Loading...</p>;
+
   return (
     <div className="popularCars container_w">
       <div className="header">
@@ -16,10 +25,9 @@ const PopularCars = (props: Props) => {
         </Link>
       </div>
       <div className="cards">
-        <CarCard recomandation={false} />
-        <CarCard recomandation={false} />
-        <CarCard recomandation={false} />
-        <CarCard recomandation={false} />
+        {popularCars.map((car, index) => {
+          return <CarCard key={index} recomandation={false} car={car} />;
+        })}
       </div>
     </div>
   );

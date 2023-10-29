@@ -1,9 +1,13 @@
 .cardCar {
     padding: 1rem;
+    flex: 1;
     background-color: #fff;
     border-radius: 0.625rem;
     width: 15rem;
-    height: 17.875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20rem;
 
     @media (min-width: 1075px) {
         height: auto;
@@ -26,6 +30,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex: 1;
         .carName {
             color: #1a202c;
             font-size: 1rem;
@@ -63,7 +68,9 @@
         margin-top: 2rem;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         gap: 2rem;
+        flex: 4;
 
         .mainImg {
             width: 11rem;
@@ -132,6 +139,7 @@
         align-items: center;
         gap: 1rem;
         margin-top: 1.75rem;
+        flex: 1;
 
         .price {
             color: #1a202c;

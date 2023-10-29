@@ -112,7 +112,7 @@ const AdminCars = () => {
             options={{
               actionsColumnIndex: -1,
               doubleHorizontalScroll: true,
-              maxBodyHeight: 450,
+              maxBodyHeight: 420,
               emptyRowsWhenPaging: false,
               columnsButton: true,
               detailPanelColumnAlignment: "left",
