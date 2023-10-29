@@ -3,6 +3,8 @@ import { ReviewT } from "../../types/Car";
 import "./Review.scss";
 import { UsersContext } from "../../context/usersContext";
 import { User } from "../../types/Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 type Props = {
   review: ReviewT;
@@ -29,16 +31,20 @@ const Review = (props: Props) => {
 
   return (
     <div className="review">
-      <img
-        src={user?.fileURL}
-        alt="Reviewer profile picture"
-        className="profilePic"
-      />
+      {user ? (
+        <img
+          src={user?.fileURL}
+          alt="Reviewer profile picture"
+          className="profilePic"
+        />
+      ) : (
+        <FontAwesomeIcon icon={faUser} style={{ height: "30px" }} />
+      )}
 
       <div className="reviewContent">
         <div className="reviewHeader">
           <h4 className="reviewerName">
-            {user?.firstName} {user?.lastName}
+            {user ? `${user?.firstName} ${user?.lastName}` : "Deleted User"}
           </h4>
           <span className="postDate">
             {date.getDate()} -{" "}
@@ -50,7 +56,7 @@ const Review = (props: Props) => {
         </div>
 
         <div className="reviewInfo">
-          <span className="reviewerTitle">{user?.title}</span>
+          <span className="reviewerTitle">{user ? user.title : "---"}</span>
           <span className="rating">{props.review.rating} stele</span>
         </div>
 
