@@ -26,7 +26,10 @@ export const AuthContextProvider = ({
     const unsub = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userInfo = await getDoc(doc(db, "users", user.uid));
-        setUser(userInfo.data() as User);
+        const userD = userInfo.data();
+        if (userD?.email) {
+          setUser(userD as User);
+        }
       } else {
         setUser({} as User);
       }
