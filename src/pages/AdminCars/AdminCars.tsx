@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
+import "./AdminCars.scss";
 
 const AdminCars = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AdminCars = () => {
 
   return (
     <AdminLayout>
-      <div style={{ width: "99%", maxHeight: "500px" }}>
+      <div className="adminTableC">
         <ThemeProvider theme={createTheme()}>
           <MaterialTable
             columns={[
@@ -111,10 +112,11 @@ const AdminCars = () => {
             options={{
               actionsColumnIndex: -1,
               doubleHorizontalScroll: true,
-              maxBodyHeight: 500,
+              maxBodyHeight: 450,
               emptyRowsWhenPaging: false,
               columnsButton: true,
               detailPanelColumnAlignment: "left",
+              overflowY: "scroll",
             }}
           />
         </ThemeProvider>
