@@ -20,7 +20,6 @@ const CarPage = () => {
     setCar(mycar);
   }, [carContext.cars]);
 
-  console.log(car);
   return (
     <div className="bg">
       <SideBarPage buttons={false}>
