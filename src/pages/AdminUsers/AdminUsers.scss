@@ -1,0 +1,14 @@
+.adminTableC {
+    width: 99%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    overflow: auto;
+
+    @media (min-width: 570px) {
+        margin-top: 2.5rem;
+    }
+    @media (min-width: 900px) {
+        margin-top: 1rem;
+    }
+}
