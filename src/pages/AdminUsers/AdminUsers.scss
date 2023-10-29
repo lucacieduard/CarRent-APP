@@ -11,4 +11,49 @@
     @media (min-width: 900px) {
         margin-top: 1rem;
     }
+
+    .pImg {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .updateUserContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        .fields {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                text-align: flex-start;
+                justify-content: center;
+                gap: 0.5rem;
+                flex: 1;
+
+                label {
+                    font-weight: bold;
+                }
+                input {
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    outline: none;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+    }
 }

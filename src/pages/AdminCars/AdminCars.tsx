@@ -116,7 +116,6 @@ const AdminCars = () => {
               emptyRowsWhenPaging: false,
               columnsButton: true,
               detailPanelColumnAlignment: "left",
-              overflowY: "scroll",
             }}
           />
         </ThemeProvider>
