@@ -23,7 +23,6 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
         const data = doc.data();
-        console.log(data);
         users.push(data as User);
       });
       setUsers(users);

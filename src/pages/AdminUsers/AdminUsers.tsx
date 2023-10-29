@@ -12,7 +12,6 @@ import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 
 const AdminUsers = () => {
   const usersContext = useContext(UsersContext);
-  console.log(usersContext);
   const titleRef = useRef<HTMLInputElement>(null);
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);

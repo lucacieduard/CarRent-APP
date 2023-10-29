@@ -19,7 +19,6 @@ const AddCar = () => {
   const [pending, setPending] = useState<boolean>(false);
   const carContext = useContext(CarsContext);
   const searchParams = useSearchParams();
-  console.log(searchParams);
   const navigate = useNavigate();
   const upload = async (file: File, uid: string) => {
     const storageRef = ref(storage, `Cars/${uid}/${String(Math.random())}`);

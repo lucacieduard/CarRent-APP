@@ -10,7 +10,6 @@ type Params = {
 };
 
 const CarInfo = (props: Params) => {
-  console.log(props?.car);
   const images = [props?.car.svg, ...props.car.img];
   const [imgId, setImgId] = useState(0);
   const changeImage = (index: number) => {

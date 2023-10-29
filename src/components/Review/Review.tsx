@@ -18,7 +18,6 @@ const Review = (props: Props) => {
   const [user, setUser] = useState<User | undefined>({} as User);
 
   const usersContext = useContext(UsersContext);
-  console.log(props.review);
 
   useEffect(() => {
     const user = usersContext.users.find(
