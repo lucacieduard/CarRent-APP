@@ -23,6 +23,9 @@ const NavBar = () => {
         </Link>
         {authCtx.user.firstName ? (
           <>
+            <Link to={"/admin"}>
+              <p>Admin</p>
+            </Link>
             <div className="icons">
               <span className="icon">
                 <FontAwesomeIcon icon={faHeart} className="faicon" />
