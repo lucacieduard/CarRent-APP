@@ -26,6 +26,10 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
+        @media (min-width: 1000px) {
+            align-items: inherit;
+        }
     }
 }
 

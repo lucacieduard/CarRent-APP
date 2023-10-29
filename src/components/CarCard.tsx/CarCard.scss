@@ -3,7 +3,7 @@
     flex: 1;
     background-color: #fff;
     border-radius: 0.625rem;
-    width: 15rem;
+    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,20 +12,9 @@
     @media (min-width: 1075px) {
         height: auto;
         flex: 1;
-        max-width: 19rem;
     }
 
-    @media (min-width: 1370px) {
-        padding: 1.5rem;
-        max-width: 20rem;
-    }
 
-    @media (min-width: 1450px) {
-        max-width: 21rem;
-    }
-    @media (min-width: 1550px) {
-        max-width: 22rem;
-    }
     .cardHeader {
         display: flex;
         align-items: center;
