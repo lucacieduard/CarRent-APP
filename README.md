@@ -5,7 +5,10 @@ Live website : https://car-rental.eduardlucaci.ro
 Next : 
 - [ ] dummy payment system
 - [ ] transactions table on admin interface
-- [ ] dashboard with statistics on admin interface
 - [ ] loading state for pages/components
+- [ ] favorites sistem
+- [ ] notifications sistem
+- [ ] user page
+- [ ] dashboard with statistics on admin interface
 - [ ] animations
 - [ ] optimizations
