@@ -1,0 +1,33 @@
+.container {
+    background-color: #f6f7f9;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+            display: flex;
+            gap: 0.38rem;
+            align-items: center;
+
+            color: #1a202c;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: -0.02rem;
+        }
+
+        svg {
+            font-size: 1.5rem;
+        }
+    }
+
+    .inputs {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}

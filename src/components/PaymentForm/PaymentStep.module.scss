@@ -1,0 +1,39 @@
+.container {
+    background-color: white;
+    border-radius: 0.625rem;
+    padding: 1rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .info {
+            .title {
+                color: #1a202c;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%; /* 1.5rem */
+                letter-spacing: -0.02rem;
+            }
+            .subtitle {
+                color: #90a3bf;
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+            }
+        }
+
+        span {
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: -0.015rem;
+            color: #90a3bf;
+        }
+    }
+}

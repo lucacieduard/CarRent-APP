@@ -1,0 +1,162 @@
+.rentalSummaryContainer {
+    background-color: white;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    margin: 0rem 1.5rem;
+
+    .title {
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 1.5rem */
+        letter-spacing: -0.02rem;
+    }
+    .p {
+        color: #90a3bf;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%; /* 1.2rem */
+    }
+
+    .box {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(195, 212, 233, 0.4);
+
+        .imageContainer {
+            background-color: #3563e9;
+            width: 7.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5rem;
+            border-radius: 0.5rem;
+            .carImg {
+                width: 6.3rem;
+            }
+        }
+        .infoContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            .carName {
+                color: #1a202c;
+                font-size: 1.25rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%; /* 1.75rem */
+            }
+            .stars {
+                color: #3d5278;
+
+                font-family: Plus Jakarta Sans;
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 0.015rem;
+            }
+        }
+    }
+
+    .priceContainer {
+        margin-top: 1rem;
+        .field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            .title {
+                color: #90a3bf;
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+            }
+            .price {
+                color: #1a202c;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%; /* 1.5rem */
+                letter-spacing: -0.02rem;
+            }
+        }
+
+        .promo {
+            margin-top: 0.75rem;
+            width: 100%;
+            background-color: #f6f7f9;
+            padding: 0.62rem 1.25rem;
+            border-radius: 0.625rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                font-family: Plus Jakarta Sans;
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+                color: #90a3bf;
+                border: none;
+                background-color: transparent;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            button {
+                color: #1a202c;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: -0.015rem;
+            }
+        }
+
+        .total {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .text {
+                .bold {
+                    font-size: 1rem;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%; /* 1.5rem */
+                    letter-spacing: -0.02rem;
+                    color: #1a202c;
+                }
+                .subp {
+                    color: #90a3bf;
+                    font-size: 0.75rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.0075rem;
+                }
+            }
+
+            .totalP {
+                font-size: 1.25rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%; /* 1.875rem */
+                letter-spacing: -0.0375rem;
+            }
+        }
+    }
+}

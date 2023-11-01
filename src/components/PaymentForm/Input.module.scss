@@ -1,0 +1,20 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    label {
+        color: #1a202c;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 1.5rem */
+        letter-spacing: -0.02rem;
+    }
+
+    input {
+        border-radius: 0.625rem;
+        background: #f6f7f9;
+        padding: 1.13rem 1.5rem;
+        border: none;
+    }
+}

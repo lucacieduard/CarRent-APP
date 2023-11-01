@@ -1,0 +1,72 @@
+.container {
+    margin: 0rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    .payments {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    .confirm {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        .field {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            background-color: #f6f7f9;
+            padding: 0.6rem 1rem;
+            border-radius: 0.625rem;
+
+            p {
+                color: #1f2544;
+
+                font-size: 0.75rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 160%; /* 1.2rem */
+                letter-spacing: -0.015rem;
+            }
+        }
+        button {
+            align-self: flex-start;
+        }
+
+        .icon {
+            align-self: flex-start;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .bold {
+            color: #1a202c;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%; /* 1.5rem */
+            letter-spacing: -0.02rem;
+        }
+        .text {
+            color: #90a3bf;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: -0.015rem;
+        }
+    }
+}

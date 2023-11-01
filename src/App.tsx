@@ -14,6 +14,7 @@ import AdminUsers from "./pages/AdminUsers/AdminUsers";
 import { useContext, useEffect } from "react";
 import { CarsContext } from "./context/carsContext";
 import { UsersContext } from "./context/usersContext";
+import Payment from "./pages/Payment/Payment";
 function App() {
   // TODO protect routes 16m
   //TODO Loading sistem
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<Cars />} />
           <Route path=":id" element={<CarPage />} />
         </Route>
+        <Route path="/payment/:id" element={<Payment />} />
         <Route path="admin">
           <Route index element={<DashBoard />} />
           <Route path="add" element={<AddCar />} />
