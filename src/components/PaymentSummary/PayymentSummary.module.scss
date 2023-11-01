@@ -3,8 +3,8 @@
     padding: 1rem;
     border-radius: 0.625rem;
     margin: 0rem 1.5rem;
-    max-width: 500px;
 
+    width: 100%;
     @media (min-width: 900px) {
         flex: 1;
         margin: unset;
