@@ -3,10 +3,18 @@
     border-radius: 0.625rem;
     padding: 1rem;
 
+    @media (min-width: 1250px) {
+        padding: 1.5rem;
+    }
+
     .header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+
+        @media (min-width: 1250px) {
+            align-items: flex-end;
+        }
 
         .info {
             .title {
@@ -16,6 +24,10 @@
                 font-weight: 700;
                 line-height: 150%; /* 1.5rem */
                 letter-spacing: -0.02rem;
+
+                @media (min-width: 1250px) {
+                    font-size: 1.25rem;
+                }
             }
             .subtitle {
                 color: #90a3bf;
@@ -24,6 +36,10 @@
                 font-weight: 500;
                 line-height: normal;
                 letter-spacing: -0.015rem;
+
+                @media (min-width: 1250px) {
+                    font-size: 0.87rem;
+                }
             }
         }
 
@@ -34,6 +50,10 @@
             line-height: normal;
             letter-spacing: -0.015rem;
             color: #90a3bf;
+
+            @media (min-width: 1250px) {
+                font-size: 0.87rem;
+            }
         }
     }
 }

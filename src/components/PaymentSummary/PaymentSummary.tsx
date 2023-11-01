@@ -43,7 +43,9 @@ const PaymentSummary = () => {
         <div className={styles.total}>
           <div className={styles.text}>
             <p className={styles.bold}>Total Rental Price</p>
-            <p className={styles.subp}>Overall price rental</p>
+            <p className={styles.subp}>
+              Overall price and includes rental discount
+            </p>
           </div>
           <p className={styles.totalP}>$80.00</p>
         </div>

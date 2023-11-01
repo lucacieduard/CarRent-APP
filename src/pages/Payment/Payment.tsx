@@ -8,10 +8,12 @@ const Payment = () => {
   return (
     <>
       <div style={{ background: "#F6F7F9" }}>
-        <div className={`${styles.container} container_w`}>
-          <PaymentSummary />
-          <PaymentForm />
-        </div>
+        <FullPageLayout>
+          <div className={`${styles.container} container_w`}>
+            <PaymentSummary />
+            <PaymentForm />
+          </div>
+        </FullPageLayout>
       </div>
       <div style={{ backgroundColor: "white" }}>
         <FullPageLayout>
