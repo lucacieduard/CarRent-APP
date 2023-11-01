@@ -18,7 +18,7 @@ const CarPage = () => {
   useEffect(() => {
     const mycar = carContext.cars.find((car) => car.uid === params.id);
     setCar(mycar);
-  }, [carContext.cars]);
+  }, [carContext.cars, params.id]);
 
   return (
     <div className="bg">
