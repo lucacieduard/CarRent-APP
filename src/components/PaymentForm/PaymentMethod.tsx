@@ -6,6 +6,7 @@ type Props = {
   checked: boolean;
   icon: React.ReactNode;
   setPayment: () => void;
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const PaymentMethod = (props: Props) => {
@@ -29,20 +30,37 @@ const PaymentMethod = (props: Props) => {
             title="Card Number"
             placeholder="Card number"
             bg={true}
+            name="cardNumber"
+            changeHandler={props.changeHandler}
+
           />
           <Input
             type="text"
             title="Card Holder"
             placeholder="Card holder"
             bg={true}
+            name="cardHolder"
+            changeHandler={props.changeHandler}
+
           />
           <Input
             type="date"
             title="Expiration Date"
             placeholder="Expiration date"
             bg={true}
+            name="date"
+            changeHandler={props.changeHandler}
+
           />
-          <Input type="text" title="CVC" placeholder="CVC" bg={true} />
+          <Input
+            type="text"
+            title="CVC"
+            placeholder="CVC"
+            bg={true}
+            name="cvc"
+            changeHandler={props.changeHandler}
+
+          />
         </div>
       )}
     </div>

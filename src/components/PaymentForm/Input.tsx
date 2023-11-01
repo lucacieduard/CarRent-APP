@@ -5,6 +5,8 @@ type Props = {
   type: string;
   placeholder: string;
   bg?: boolean;
+  name: string;
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = (props: Props) => {
@@ -15,6 +17,8 @@ const Input = (props: Props) => {
         type={props.type}
         placeholder={props.placeholder}
         style={props.bg ? { backgroundColor: "white" } : {}}
+        name={props.name}
+        onChange={(e) => props.changeHandler(e)}
       />
     </div>
   );

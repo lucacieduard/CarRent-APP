@@ -6,7 +6,12 @@ import PaymentStep from "./PaymentStep";
 import { faBitcoinSign, faShield } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const PaymentForm = () => {
+type Props = {
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  submitHandler: () => void;
+};
+
+const PaymentForm = (props: Props) => {
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   return (
     <div className={styles.container}>
@@ -16,10 +21,34 @@ const PaymentForm = () => {
         step={1}
       >
         <div className={styles.form}>
-          <Input type="text" placeholder="Your name" title="Name" />
-          <Input type="text" placeholder="Address" title="Address" />
-          <Input type="text" placeholder="Phone number" title="Phone Number" />
-          <Input type="text" placeholder="Town or city" title="Town/City" />
+          <Input
+            type="text"
+            placeholder="Your name"
+            title="Name"
+            name="name"
+            changeHandler={props.changeHandler}
+          />
+          <Input
+            type="text"
+            placeholder="Address"
+            title="Address"
+            name="address"
+            changeHandler={props.changeHandler}
+          />
+          <Input
+            type="text"
+            placeholder="Phone number"
+            title="Phone Number"
+            name="phone"
+            changeHandler={props.changeHandler}
+          />
+          <Input
+            type="text"
+            placeholder="Town or city"
+            title="Town/City"
+            name="city"
+            changeHandler={props.changeHandler}
+          />
         </div>
       </PaymentStep>
       <PaymentStep
@@ -41,6 +70,7 @@ const PaymentForm = () => {
             title="Credit Card"
             checked={paymentMethod === "credit-card"}
             setPayment={() => setPaymentMethod("credit-card")}
+            changeHandler={props.changeHandler}
           />
           <PaymentMethod
             icon={
@@ -55,12 +85,14 @@ const PaymentForm = () => {
             title="Paypal"
             checked={paymentMethod === "paypal"}
             setPayment={() => setPaymentMethod("paypal")}
+            changeHandler={props.changeHandler}
           />
           <PaymentMethod
             icon={<FontAwesomeIcon icon={faBitcoinSign} />}
             title="Bitcoin"
             checked={paymentMethod === "bitcoin"}
             setPayment={() => setPaymentMethod("bitcoin")}
+            changeHandler={props.changeHandler}
           />
         </div>
       </PaymentStep>
@@ -81,7 +113,11 @@ const PaymentForm = () => {
             <input type="checkbox" style={{ cursor: "pointer" }} />
             <p>I agree with our terms and conditions and privacy policy!</p>
           </div>
-          <button className="button" style={{ cursor: "pointer" }}>
+          <button
+            className="button"
+            style={{ cursor: "pointer" }}
+            onClick={() => props.submitHandler()}
+          >
             Rental now
           </button>
           <FontAwesomeIcon icon={faShield} className={styles.icon} />

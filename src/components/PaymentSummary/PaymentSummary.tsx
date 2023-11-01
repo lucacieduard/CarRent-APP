@@ -1,7 +1,15 @@
+import { useState } from "react";
+import { Car } from "../../types/Car";
 import styles from "./PayymentSummary.module.scss";
 import rectangle from "/rectangle.png";
 
-const PaymentSummary = () => {
+type Props = {
+  car: Car | undefined;
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const PaymentSummary = (props: Props) => {
+  const [days, setDays] = useState<number>(1);
   return (
     <div className={`${styles.rentalSummaryContainer}`}>
       <h2 className={styles.title}>Rental Summary</h2>
@@ -18,21 +26,30 @@ const PaymentSummary = () => {
             backgroundSize: "cover",
           }}
         >
-          <img src="/image_8.png" alt="" className={styles.carImg} />
+          <img src={props.car?.svg} alt="" className={styles.carImg} />
         </div>
         <div className={styles.infoContainer}>
-          <h3 className={styles.carName}>Nissan GTR</h3>
+          <h3 className={styles.carName}>{props.car?.carName}</h3>
           <p className={styles.stars}>5 stars based on X reviews</p>
         </div>
       </div>
       <div className={styles.priceContainer}>
         <div className={styles.field}>
           <p className={styles.title}>Subtotal</p>
-          <p className={styles.price}>$80.0</p>
+          <p className={styles.price}>${props.car?.price}</p>
         </div>
         <div className={styles.field}>
-          <p className={styles.title}>Tax</p>
-          <p className={styles.price}>$0</p>
+          <p className={styles.title}>Days</p>
+          <input
+            type="number"
+            value={days}
+            name="days"
+            onChange={(e) => {
+              setDays(Number(e.target.value));
+              props.changeHandler(e);
+            }}
+            min={1}
+          />
         </div>
 
         <div className={styles.promo}>
@@ -47,7 +64,9 @@ const PaymentSummary = () => {
               Overall price and includes rental discount
             </p>
           </div>
-          <p className={styles.totalP}>$80.00</p>
+          <p className={styles.totalP}>
+            ${props.car ? props?.car.price * days : "0"}
+          </p>
         </div>
       </div>
     </div>

@@ -126,9 +126,23 @@
                 font-weight: 500;
                 line-height: normal;
                 letter-spacing: -0.015rem;
+                border: none;
 
                 @media (min-width: 1250px) {
                     font-size: 1rem;
+                }
+            }
+
+            input {
+                border: none;
+                background-color: #f6f7f9;
+                width: 50px;
+                text-align: center;
+                padding: 0.5rem;
+                border-radius: 0.65rem;
+
+                &:focus {
+                    outline: none;
                 }
             }
             .price {
