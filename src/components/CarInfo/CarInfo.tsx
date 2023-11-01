@@ -4,6 +4,7 @@ import rectangle from "/rectangle.png";
 import { useState } from "react";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { Car } from "../../types/Car";
+import { Link } from "react-router-dom";
 
 type Params = {
   car: Car;
@@ -99,7 +100,11 @@ const CarInfo = (props: Params) => {
           <span className="price">
             ${props.car.price} <span className="per">/day</span>
           </span>
-          <button className="rentNow">Rent Now</button>
+          <Link to={`/payment/${props.car.uid}`}>
+            <button className="rentNow" style={{ cursor: "pointer" }}>
+              Rent Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -71,17 +71,19 @@ const PaymentForm = () => {
       >
         <div className={styles.confirm}>
           <div className={styles.field}>
-            <input type="checkbox" />
+            <input type="checkbox" style={{ cursor: "pointer" }} />
             <p>
               I agree with sending an Marketing and newsletter emails. No spam,
               promissed!
             </p>
           </div>
           <div className={styles.field}>
-            <input type="checkbox" />
+            <input type="checkbox" style={{ cursor: "pointer" }} />
             <p>I agree with our terms and conditions and privacy policy!</p>
           </div>
-          <button className="button">Rental now</button>
+          <button className="button" style={{ cursor: "pointer" }}>
+            Rental now
+          </button>
           <FontAwesomeIcon icon={faShield} className={styles.icon} />
           <h2 className={styles.bold}>All your data are safe</h2>
           <p className={styles.text}>

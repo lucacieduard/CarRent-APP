@@ -11,7 +11,11 @@ type Props = {
 const PaymentMethod = (props: Props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.header} onClick={() => props.setPayment()}>
+      <div
+        className={styles.header}
+        onClick={() => props.setPayment()}
+        style={props.checked ? {} : { cursor: "pointer" }}
+      >
         <p className={styles.title}>
           <input type="radio" checked={props.checked} />
           {props.title}
