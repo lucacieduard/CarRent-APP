@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext.tsx";
 import { CarsContextProvider } from "./context/carsContext.tsx";
 import { UsersProvider } from "./context/usersContext.tsx";
+import { TransactionsContextProvider } from "./context/transactionsContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <AuthContextProvider>
         <UsersProvider>
           <CarsContextProvider>
-            <App />
+            <TransactionsContextProvider>
+              <App />
+            </TransactionsContextProvider>
           </CarsContextProvider>
         </UsersProvider>
       </AuthContextProvider>

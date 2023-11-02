@@ -15,15 +15,19 @@ import { useContext, useEffect } from "react";
 import { CarsContext } from "./context/carsContext";
 import { UsersContext } from "./context/usersContext";
 import Payment from "./pages/Payment/Payment";
+import { TransactionsContext } from "./context/transactionsContext";
 function App() {
   // TODO protect routes 16m
   //TODO Loading sistem
 
   const carsContext = useContext(CarsContext);
   const usersContext = useContext(UsersContext);
+  const transactionsContext = useContext(TransactionsContext);
+  console.log(transactionsContext.transactions); 
   useEffect(() => {
     usersContext.getUsers();
     carsContext.getCars();
+    transactionsContext.getTransactions();
   }, []);
   return (
     <div className="app">
