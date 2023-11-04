@@ -5,7 +5,7 @@ Live website : https://car-rental.eduardlucaci.ro
 Next : 
 - :heavy_check_mark: dummy payment system
 - :heavy_check_mark: transactions table on admin interface
-- [ ] loading state for pages/components
+- :heavy_check_mark: loading state for pages/components
 - [ ] favorites sistem
 - [ ] notifications sistem
 - [ ] user page
