@@ -23,7 +23,6 @@ function App() {
   const carsContext = useContext(CarsContext);
   const usersContext = useContext(UsersContext);
   const transactionsContext = useContext(TransactionsContext);
-  console.log(transactionsContext.transactions); 
   useEffect(() => {
     usersContext.getUsers();
     carsContext.getCars();

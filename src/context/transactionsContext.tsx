@@ -29,7 +29,6 @@ export const TransactionsContextProvider = ({
       const querySnapshot = await getDocs(collection(db, "transactions"));
       querySnapshot.forEach((doc) => {
         const data = doc.data();
-        console.log(data);
         transactionsD.push(data as Transaction);
       });
       setTransactions(transactionsD);
