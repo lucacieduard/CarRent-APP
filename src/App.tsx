@@ -17,6 +17,7 @@ import { UsersContext } from "./context/usersContext";
 import Payment from "./pages/Payment/Payment";
 import { TransactionsContext } from "./context/transactionsContext";
 import { AuthContext } from "./context/authContext";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const authContext = useContext(AuthContext);
@@ -43,6 +44,7 @@ function App() {
   return (
     <div className="app">
       <NavBar />
+      <ScrollToTop />
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="login" element={<Login />} />
