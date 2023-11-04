@@ -3,6 +3,7 @@ import { CarsContext } from "../../context/carsContext";
 import CarCard from "../CarCard.tsx/CarCard";
 import "./Recomandations.scss";
 import { useContext } from "react";
+import Loading from "../Loading/Loading";
 
 const Recomandations = () => {
   const carsContext = useContext(CarsContext);
@@ -15,9 +16,13 @@ const Recomandations = () => {
     <div className="recomandations container_w">
       <span className="title">Recomendation Car</span>
       <div className="recomandationCars">
-        {recomandations.map((car, index) => {
-          return <CarCard key={index} recomandation={true} car={car} />;
-        })}
+        {recomandations.length === 0 ? (
+          <Loading />
+        ) : (
+          recomandations.map((car, index) => {
+            return <CarCard key={index} recomandation={true} car={car} />;
+          })
+        )}
       </div>
       <div className="buttons">
         <Link to={"/cars"}>

@@ -6,6 +6,7 @@ import FilterSection from "../../components/FilterSection/FilterSection";
 import SideBarPage from "../../layout/SideBarPage/SideBarPage";
 import { useContext, useState } from "react";
 import { CarsContext } from "../../context/carsContext";
+import Loading from "../../components/Loading/Loading";
 
 const Cars = () => {
   const [carsNumber, setCarsNumber] = useState(8);
@@ -26,9 +27,13 @@ const Cars = () => {
       <SideBarPage buttons={true}>
         <FilterSection />
         <div className="carsContainer">
-          {carsContext.cars.slice(0, carsNumber).map((car, index) => {
-            return <CarCard key={index} recomandation={false} car={car} />;
-          })}
+          {carsContext.cars.length === 0 ? (
+            <Loading />
+          ) : (
+            carsContext.cars.slice(0, carsNumber).map((car, index) => {
+              return <CarCard key={index} recomandation={false} car={car} />;
+            })
+          )}
         </div>
 
         <div className="buttons">

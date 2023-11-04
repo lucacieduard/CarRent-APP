@@ -3,6 +3,7 @@ import CarCard from "../CarCard.tsx/CarCard";
 import "./PopularCars.scss";
 import { useContext } from "react";
 import { CarsContext } from "../../context/carsContext";
+import Loading from "../Loading/Loading";
 
 type Props = {
   title: string;
@@ -14,8 +15,6 @@ const PopularCars = (props: Props) => {
   let popularCars = carsContext.cars.filter((car) => car.popular);
   popularCars = popularCars.slice(0, 4);
 
-  if (!popularCars) return <p>Loading...</p>;
-
   return (
     <div className="popularCars container_w">
       <div className="header">
@@ -25,9 +24,13 @@ const PopularCars = (props: Props) => {
         </Link>
       </div>
       <div className="cards">
-        {popularCars.map((car, index) => {
-          return <CarCard key={index} recomandation={false} car={car} />;
-        })}
+        {popularCars.length === 0 ? (
+          <Loading />
+        ) : (
+          popularCars.map((car, index) => {
+            return <CarCard key={index} recomandation={false} car={car} />;
+          })
+        )}
       </div>
     </div>
   );

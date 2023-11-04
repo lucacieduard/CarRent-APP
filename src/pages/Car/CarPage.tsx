@@ -9,6 +9,7 @@ import { CarsContext } from "../../context/carsContext";
 import { useContext, useEffect, useState } from "react";
 import { Car } from "../../types/Car";
 import Reviews from "../../components/Review/Reviews";
+import Loading from "../../components/Loading/Loading";
 
 const CarPage = () => {
   const [car, setCar] = useState<Car | null | undefined>(null);
@@ -24,7 +25,18 @@ const CarPage = () => {
     <div className="bg">
       <SideBarPage buttons={false}>
         {!car ? (
-          carContext.loading && <p>Loading ... </p>
+          <div
+            style={{
+              height: "450px",
+              width: "500px",
+              margin: "0 auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Loading />
+          </div>
         ) : (
           <>
             <CarInfo car={car} />
