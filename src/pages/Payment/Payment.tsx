@@ -48,7 +48,7 @@ const Payment = () => {
           uid: uid,
           price: car?.price * formData.days,
           carId: car?.uid,
-          userId: user.user.uid,
+          userId: user.user?.uid,
         });
         navigate("/cars");
       }
