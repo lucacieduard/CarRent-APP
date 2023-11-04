@@ -9,7 +9,7 @@ const Filter = (props: Props) => {
   return (
     <div className="filterContainer">
       <div className="pickup">
-        <input type="radio" checked className="radio" />
+        <input type="radio" defaultChecked className="radio" />
         <span className="title">{props.pickUp ? "Pick-Up" : "Drop - Off"}</span>
       </div>
       <div className="chooses">
