@@ -3,12 +3,13 @@ Design link : https://www.figma.com/file/PrS0kZ8mIb7L6SUetjWP96/Car-Rent-Website
 Live website : https://car-rental.eduardlucaci.ro
 
 Next : 
-- [ ] dummy payment system
-- [ ] transactions table on admin interface
+- :heavy_check_mark: dummy payment system
+- :heavy_check_mark: transactions table on admin interface
 - [ ] loading state for pages/components
 - [ ] favorites sistem
 - [ ] notifications sistem
 - [ ] user page
 - [ ] dashboard with statistics on admin interface
 - [ ] animations
+- [ ] protected routes
 - [ ] optimizations
