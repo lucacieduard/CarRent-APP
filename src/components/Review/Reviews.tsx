@@ -31,7 +31,7 @@ const Reviews = (props: Props) => {
     await updateDoc(ref, {
       reviews: arrayUnion({
         ...review,
-        user: userContext.user.uid,
+        user: userContext.user?.uid,
         date: Date.now(),
       }),
     });
@@ -44,7 +44,7 @@ const Reviews = (props: Props) => {
       <h2 className="reviewsTitle">Reviews</h2>{" "}
       <span className="reviewsLength">{props.car.reviews.length}</span>
       <div className="reviews">
-        {userContext.user.email && (
+        {userContext.user?.email && (
           <div className="addComment">
             <textarea
               name="description"

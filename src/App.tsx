@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import Cars from "./pages/Cars/Cars";
@@ -16,6 +16,18 @@ import { CarsContext } from "./context/carsContext";
 import { UsersContext } from "./context/usersContext";
 import Payment from "./pages/Payment/Payment";
 import { TransactionsContext } from "./context/transactionsContext";
+import { AuthContext } from "./context/authContext";
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const authContext = useContext(AuthContext);
+
+  if (!authContext.user && !authContext.loading) {
+    return <Navigate to="/login?redirect=true" replace />;
+  }
+
+  return <>{children}</>;
+}
+
 function App() {
   // TODO protect routes 16m
   //TODO Loading sistem
@@ -39,13 +51,55 @@ function App() {
           <Route index element={<Cars />} />
           <Route path=":id" element={<CarPage />} />
         </Route>
-        <Route path="/payment/:id" element={<Payment />} />
+        <Route
+          path="/payment/:id"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
         <Route path="admin">
-          <Route index element={<DashBoard />} />
-          <Route path="add" element={<AddCar />} />
-          <Route path="cars" element={<AdminCars />} />
-          <Route path="transactions" element={<AdminTransactions />} />
-          <Route path="users" element={<AdminUsers />} />
+          <Route
+            index
+            element={
+              <ProtectedRoute>
+                <DashBoard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="add"
+            element={
+              <ProtectedRoute>
+                <AddCar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="cars"
+            element={
+              <ProtectedRoute>
+                <AdminCars />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="transactions"
+            element={
+              <ProtectedRoute>
+                <AdminTransactions />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="users"
+            element={
+              <ProtectedRoute>
+                <AdminUsers />
+              </ProtectedRoute>
+            }
+          />
         </Route>
         <Route path="*" element={<h1>Not found!</h1>} />
       </Routes>

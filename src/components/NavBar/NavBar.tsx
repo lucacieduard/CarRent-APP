@@ -21,7 +21,7 @@ const NavBar = () => {
         <Link to={"/"} style={{ textDecoration: "none" }} className="logo">
           <span className="logo">MORENT</span>
         </Link>
-        {authCtx.user.firstName ? (
+        {authCtx.user ? (
           <>
             <div className="icons">
               <span className="icon">

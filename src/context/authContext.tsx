@@ -3,12 +3,14 @@ import { User } from "../types/Auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
+import Loading from "../components/Loading/Loading";
 
 export const AuthContext = createContext({} as Context);
 
 type Context = {
-  user: User;
+  user: User | undefined;
   addUser: (user: User) => void;
+  loading: boolean;
 };
 
 export const AuthContextProvider = ({
@@ -16,7 +18,8 @@ export const AuthContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [user, setUser] = useState({} as User);
+  const [user, setUser] = useState<User>();
+  const [loading, setLoading] = useState(true);
 
   const addUser = (user: User) => {
     setUser(user);
@@ -31,15 +34,32 @@ export const AuthContextProvider = ({
           setUser(userD as User);
         }
       } else {
-        setUser({} as User);
+        setUser(undefined);
       }
+      setLoading(false);
     });
 
-    return () => unsub();
+    return () => {
+      unsub();
+    };
   }, []);
   return (
-    <AuthContext.Provider value={{ user, addUser }}>
-      {children}
+    <AuthContext.Provider value={{ user, addUser, loading }}>
+      {!loading ? (
+        children
+      ) : (
+        <div
+          style={{
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Loading />
+        </div>
+      )}
     </AuthContext.Provider>
   );
 };
