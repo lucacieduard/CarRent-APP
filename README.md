@@ -11,5 +11,5 @@ Next :
 - [ ] user page
 - [ ] dashboard with statistics on admin interface
 - [ ] animations
-- [ ] protected routes
+- :heavy_check_mark: protected routes
 - [ ] optimizations
