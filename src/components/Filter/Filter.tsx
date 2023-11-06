@@ -1,4 +1,5 @@
 import "./Filter.scss";
+import { motion } from "framer-motion";
 
 type Props = {
   pickUp: boolean;
@@ -7,7 +8,12 @@ const Filter = (props: Props) => {
   const curr = new Date();
   const date = curr.toISOString().substring(0, 10);
   return (
-    <div className="filterContainer">
+    <motion.div
+      initial={props.pickUp ? { opacity: 0, x: -10 } : { opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="filterContainer"
+    >
       <div className="pickup">
         <input type="radio" defaultChecked className="radio" />
         <span className="title">{props.pickUp ? "Pick-Up" : "Drop - Off"}</span>
@@ -31,7 +37,7 @@ const Filter = (props: Props) => {
           <input type="time" defaultValue={"00:00"} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

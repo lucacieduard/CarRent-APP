@@ -4,6 +4,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import Loading from "../components/Loading/Loading";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const AuthContext = createContext({} as Context);
 
@@ -45,21 +47,26 @@ export const AuthContextProvider = ({
   }, []);
   return (
     <AuthContext.Provider value={{ user, addUser, loading }}>
-      {!loading ? (
-        children
-      ) : (
-        <div
-          style={{
-            width: "100vw",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Loading />
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {!loading ? (
+          children
+        ) : (
+          <motion.div
+            key="modal"
+            style={{
+              width: "100vw",
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            exit={{ y: "-50vh", opacity: 0, background: "transparent" }}
+            transition={{ duration: 0.5 }}
+          >
+            <Loading />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </AuthContext.Provider>
   );
 };

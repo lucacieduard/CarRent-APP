@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 import "./HeroCard.scss";
+import { motion } from "framer-motion";
 
 type Props = {
   title: string;
   description: string;
   backgroundImage: string;
   carImage: string;
+  left: boolean;
 };
 
 const HeroCard = (props: Props) => {
   return (
-    <div
+    <motion.div
+      initial={props.left ? { opacity: 0, x: -10 } : { opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
       className="card"
       style={{
         backgroundImage: `url(${props.backgroundImage})`,
@@ -26,7 +31,7 @@ const HeroCard = (props: Props) => {
       </Link>
 
       <img src={props.carImage} alt="car image" className="car" />
-    </div>
+    </motion.div>
   );
 };
 

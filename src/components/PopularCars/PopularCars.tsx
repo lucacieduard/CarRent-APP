@@ -28,7 +28,9 @@ const PopularCars = (props: Props) => {
           <Loading />
         ) : (
           popularCars.map((car, index) => {
-            return <CarCard key={index} recomandation={false} car={car} />;
+            return (
+              <CarCard nr={index} key={index} recomandation={false} car={car} />
+            );
           })
         )}
       </div>

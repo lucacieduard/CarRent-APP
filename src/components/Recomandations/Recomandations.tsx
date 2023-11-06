@@ -20,7 +20,9 @@ const Recomandations = () => {
           <Loading />
         ) : (
           recomandations.map((car, index) => {
-            return <CarCard key={index} recomandation={true} car={car} />;
+            return (
+              <CarCard nr={index} key={index} recomandation={true} car={car} />
+            );
           })
         )}
       </div>

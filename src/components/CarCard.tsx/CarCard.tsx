@@ -4,14 +4,30 @@ import "./CarCard.scss";
 import { faGasPump, faO, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { Car } from "../../types/Car";
+import { motion } from "framer-motion";
 
 type Props = {
   recomandation: boolean;
   car: Car;
+  nr: number;
 };
 const CarCard = (props: Props) => {
+  console.log(props.nr);
   return (
-    <div className={`cardCar ${props.recomandation ? "recCardCar" : ""}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          staggerChildren: 0.5,
+          delay: props.nr * 0.051,
+        },
+      }}
+      exit={{ opacity: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      className={`cardCar ${props.recomandation ? "recCardCar" : ""}`}
+    >
       <div className="cardHeader">
         <span className="carName">{props.car.carName}</span>
         <FontAwesomeIcon icon={faHeart} color="gray" className="heart" />
@@ -50,7 +66,7 @@ const CarCard = (props: Props) => {
           <button className="rentNow">Rental Now</button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

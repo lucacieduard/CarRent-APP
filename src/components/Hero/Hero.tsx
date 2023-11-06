@@ -13,12 +13,14 @@ const Hero = () => {
         description="Ease of doing a car rental safely and reliably. Of course at a low price."
         backgroundImage={elipse}
         carImage={carImage}
+        left={true}
       />
       <HeroCard
         title="Easy way to rent a car at a low price"
         description="Providing cheap car rental services and safe and comfortable facilities."
         backgroundImage={rectangle}
         carImage={carImage2}
+        left={false}
       />
     </div>
   );

@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import { motion } from "framer-motion";
 const NavBar = () => {
   const authCtx = useContext(AuthContext);
 
@@ -19,7 +20,14 @@ const NavBar = () => {
     <FullPageLayout>
       <div className="navbar container_w">
         <Link to={"/"} style={{ textDecoration: "none" }} className="logo">
-          <span className="logo">MORENT</span>
+          <motion.span
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="logo"
+          >
+            MORENT
+          </motion.span>
         </Link>
         {authCtx.user ? (
           <>
