@@ -4,7 +4,6 @@ import "./Login.scss";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +27,10 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <div className="formContainer">
+      <div
+        className="formContainer"
+        
+      >
         <div className="text">
           <p>Welcome Back</p>
 

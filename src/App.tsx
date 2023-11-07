@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import Cars from "./pages/Cars/Cars";
@@ -18,6 +18,7 @@ import Payment from "./pages/Payment/Payment";
 import { TransactionsContext } from "./context/transactionsContext";
 import { AuthContext } from "./context/authContext";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import { AnimatePresence } from "framer-motion";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const authContext = useContext(AuthContext);
@@ -33,6 +34,7 @@ function App() {
   // TODO protect routes 16m
   //TODO Loading sistem
 
+  const location = useLocation();
   const carsContext = useContext(CarsContext);
   const usersContext = useContext(UsersContext);
   const transactionsContext = useContext(TransactionsContext);
@@ -45,66 +47,68 @@ function App() {
     <div className="app">
       <NavBar />
       <ScrollToTop />
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="cars">
-          <Route index element={<Cars />} />
-          <Route path=":id" element={<CarPage />} />
-        </Route>
-        <Route
-          path="/payment/:id"
-          element={
-            <ProtectedRoute>
-              <Payment />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="admin">
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.key}>
+          <Route path="" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="cars">
+            <Route index element={<Cars />} />
+            <Route path=":id" element={<CarPage />} />
+          </Route>
           <Route
-            index
+            path="/payment/:id"
             element={
               <ProtectedRoute>
-                <DashBoard />
+                <Payment />
               </ProtectedRoute>
             }
           />
-          <Route
-            path="add"
-            element={
-              <ProtectedRoute>
-                <AddCar />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="cars"
-            element={
-              <ProtectedRoute>
-                <AdminCars />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="transactions"
-            element={
-              <ProtectedRoute>
-                <AdminTransactions />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="users"
-            element={
-              <ProtectedRoute>
-                <AdminUsers />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-        <Route path="*" element={<h1>Not found!</h1>} />
-      </Routes>
+          <Route path="admin">
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <DashBoard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="add"
+              element={
+                <ProtectedRoute>
+                  <AddCar />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="cars"
+              element={
+                <ProtectedRoute>
+                  <AdminCars />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="transactions"
+              element={
+                <ProtectedRoute>
+                  <AdminTransactions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <ProtectedRoute>
+                  <AdminUsers />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          <Route path="*" element={<h1>Not found!</h1>} />
+        </Routes>{" "}
+      </AnimatePresence>
     </div>
   );
 }

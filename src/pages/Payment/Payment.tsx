@@ -11,6 +11,8 @@ import { AuthContext } from "../../context/authContext";
 import { v4 as uuidv4 } from "uuid";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../utils/containerVariants";
 
 type Form = {
   name: string;
@@ -63,7 +65,13 @@ const Payment = () => {
   }, [carsContext.cars, id]);
   return (
     <>
-      <div style={{ background: "#F6F7F9" }}>
+      <motion.div
+        style={{ background: "#F6F7F9" }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         <FullPageLayout>
           <div className={`${styles.container} container_w`}>
             <PaymentSummary car={car} changeHandler={changeHandler} />
@@ -73,7 +81,7 @@ const Payment = () => {
             />
           </div>
         </FullPageLayout>
-      </div>
+      </motion.div>
       <div style={{ backgroundColor: "white" }}>
         <FullPageLayout>
           <Footer />

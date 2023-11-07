@@ -1,8 +1,16 @@
 import "./Footer.scss";
-
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
-    <div className="footerContainer container_w">
+    <motion.div
+      className="footerContainer container_w"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{
+        once: true,
+      }}
+    >
       <div className="footerMain">
         <div className="right">
           <span className="logo">MORENT</span>
@@ -42,7 +50,7 @@ const Footer = () => {
           <span className="text">Terms & Condition</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

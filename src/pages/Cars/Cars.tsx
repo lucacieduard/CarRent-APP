@@ -8,6 +8,8 @@ import { useContext, useState } from "react";
 import { CarsContext } from "../../context/carsContext";
 import Loading from "../../components/Loading/Loading";
 import { AnimatePresence } from "framer-motion";
+import { containerVariants } from "../../utils/containerVariants";
+import { motion } from "framer-motion";
 
 const Cars = () => {
   const [carsNumber, setCarsNumber] = useState(8);
@@ -24,7 +26,13 @@ const Cars = () => {
   };
 
   return (
-    <div className="bg">
+    <motion.div
+      className="bg"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <SideBarPage buttons={true}>
         <FilterSection />
         <div className="carsContainer">
@@ -33,7 +41,14 @@ const Cars = () => {
               <Loading />
             ) : (
               carsContext.cars.slice(0, carsNumber).map((car, index) => {
-                return <CarCard key={index} nr={index} recomandation={false} car={car} />;
+                return (
+                  <CarCard
+                    key={index}
+                    nr={index}
+                    recomandation={false}
+                    car={car}
+                  />
+                );
               })
             )}
           </AnimatePresence>
@@ -63,7 +78,7 @@ const Cars = () => {
           <Footer />
         </FullPageLayout>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

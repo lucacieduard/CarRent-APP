@@ -5,9 +5,20 @@ import "./Home.scss";
 import Recomandations from "../../components/Recomandations/Recomandations";
 import Footer from "../../components/Footer/Footer";
 import FilterSection from "../../components/FilterSection/FilterSection";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../utils/containerVariants";
+
+
+
 const Home = () => {
   return (
-    <div className="bg">
+    <motion.div
+      className="bg"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <FullPageLayout>
         <Hero />
         <FilterSection />
@@ -19,7 +30,7 @@ const Home = () => {
           <Footer />
         </FullPageLayout>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

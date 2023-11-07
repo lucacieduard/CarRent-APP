@@ -10,6 +10,8 @@ import { useContext, useEffect, useState } from "react";
 import { Car } from "../../types/Car";
 import Reviews from "../../components/Review/Reviews";
 import Loading from "../../components/Loading/Loading";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../utils/containerVariants";
 
 const CarPage = () => {
   const [car, setCar] = useState<Car | null | undefined>(null);
@@ -22,7 +24,13 @@ const CarPage = () => {
   }, [carContext.cars, params.id]);
 
   return (
-    <div className="bg">
+    <motion.div
+      className="bg"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <SideBarPage buttons={false}>
         {!car ? (
           <div
@@ -55,7 +63,7 @@ const CarPage = () => {
           <Footer />
         </FullPageLayout>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
