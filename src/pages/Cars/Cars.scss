@@ -18,7 +18,7 @@
     .carsContainer {
         margin-top: 2rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
         gap: 1.25rem;
         align-items: center;
@@ -50,13 +50,6 @@
         border: none;
         font-size: 0.75rem;
         font-weight: 600;
-
-        &:hover {
-            cursor: pointer;
-            border: 1px solid #3563e9;
-            background-color: transparent;
-            color: #3563e9;
-        }
 
         @media (min-width: 800px) {
             font-size: 0.85rem;
