@@ -1,11 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.scss";
-import {
-  faMagnifyingGlass,
-  faHeart,
-  faBell,
-  faSignOut,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faBell, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -13,6 +8,7 @@ import { AuthContext } from "../../context/authContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { motion } from "framer-motion";
+import Search from "./Search";
 const NavBar = () => {
   const authCtx = useContext(AuthContext);
 
@@ -58,14 +54,7 @@ const NavBar = () => {
             <Link to={"/register"}>Register</Link>
           </div>
         )}
-        <div className="search">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
-          <input
-            type="text"
-            className="input"
-            placeholder="Search something here..."
-          />
-        </div>
+        <Search />
       </div>
     </FullPageLayout>
   );

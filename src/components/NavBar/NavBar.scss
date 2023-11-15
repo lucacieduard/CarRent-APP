@@ -39,20 +39,21 @@
         height: 2.2rem;
 
         @media (min-width: 570px) {
-            position: unset;
+            position: relative;
             order: 1;
             flex: 1;
+            top: unset;
             height: 2rem;
             max-width: 250px;
-
             border-radius: 4.375rem;
         }
 
+        @media (min-width: 700px) {
+            max-width: 350px;
+        }
+
         @media (min-width: 1000px) {
-            &:focus-within {
-                max-width: 400px;
-            }
-            transition: all 1s;
+            max-width: 500px;
         }
 
         @media (min-width: 1250px) {
@@ -71,6 +72,10 @@
             font-size: 0.85rem;
             letter-spacing: -0.01rem;
             font-weight: 500;
+            width: 100%;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
@@ -154,6 +159,15 @@
         @media (min-width: 1250px) {
             width: 2.75rem;
             height: 2.75rem;
+        }
+    }
+
+    .deleteInput {
+        color: #596780;
+        margin-left: auto;
+
+        &:hover {
+            cursor: pointer;
         }
     }
 }
