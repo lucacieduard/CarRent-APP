@@ -12,7 +12,6 @@ type Props = {
   nr: number;
 };
 const CarCard = (props: Props) => {
-  console.log(props.nr);
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

@@ -25,7 +25,6 @@ export const AuthContextProvider = ({
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const searchParams = new URLSearchParams(location.search);
 
   const addUser = (user: User) => {
     setUser(user);
@@ -35,16 +34,9 @@ export const AuthContextProvider = ({
     const unsub = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userInfo = await getDoc(doc(db, "users", user.uid));
-
         const userD = userInfo.data();
         if (userD?.email) {
           setUser(userD as User);
-          if (location.search.includes("redirect")) {
-            navigate("/admin");
-          } else if (location.search.includes("car")) {
-            const carId = searchParams.get("car");
-            navigate(`/payment/${carId}`);
-          }
         }
       } else {
         setUser(undefined);
@@ -56,6 +48,19 @@ export const AuthContextProvider = ({
       unsub();
     };
   }, []);
+
+  useEffect(() => {
+    if (location.pathname.includes("login")) {
+      if (location.search.includes("redirect") && user?.email) {
+        navigate("/admin");
+      } else if (location.search.includes("car") && user?.email) {
+        const searchParams = new URLSearchParams(location.search);
+        const carId = searchParams.get("car");
+        navigate(`/payment/${carId}`);
+      }
+    }
+  }, [user]);
+
   return (
     <AuthContext.Provider value={{ user, addUser, loading }}>
       <AnimatePresence mode="wait">

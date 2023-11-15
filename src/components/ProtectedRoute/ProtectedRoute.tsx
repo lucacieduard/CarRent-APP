@@ -6,7 +6,6 @@ import { AuthContext } from "../../context/authContext";
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const authContext = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
 
   if (
     !authContext.user &&
