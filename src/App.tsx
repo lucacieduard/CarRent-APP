@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import Cars from "./pages/Cars/Cars";
@@ -16,19 +16,9 @@ import { CarsContext } from "./context/carsContext";
 import { UsersContext } from "./context/usersContext";
 import Payment from "./pages/Payment/Payment";
 import { TransactionsContext } from "./context/transactionsContext";
-import { AuthContext } from "./context/authContext";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
-
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const authContext = useContext(AuthContext);
-
-  if (!authContext.user && !authContext.loading) {
-    return <Navigate to="/login?redirect=true" replace />;
-  }
-
-  return <>{children}</>;
-}
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   // TODO protect routes 16m

@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AuthLayout from "../../layout/Auth/AuthLayout";
 import "./Login.scss";
 import { useContext, useEffect, useState } from "react";
@@ -12,20 +12,12 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const path = useLocation();
   const user = useContext(AuthContext);
-  console.log(path);
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      if (path.search.includes("redirect=true")) {
-        navigate("/admin");
-      } else {
-        navigate("/");
-      }
     } catch (error) {
       setError(true);
     } finally {
@@ -34,7 +26,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (path.search.includes("redirect=true")) {
+    if (path.search.includes("redirect=true") || path.search.includes("car")) {
       setEmail("test@test.com");
       setPassword("testtest");
     }

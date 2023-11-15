@@ -6,6 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import Loading from "../components/Loading/Loading";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext({} as Context);
 
@@ -22,6 +23,9 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<User>();
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
 
   const addUser = (user: User) => {
     setUser(user);
@@ -31,9 +35,16 @@ export const AuthContextProvider = ({
     const unsub = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userInfo = await getDoc(doc(db, "users", user.uid));
+
         const userD = userInfo.data();
         if (userD?.email) {
           setUser(userD as User);
+          if (location.search.includes("redirect")) {
+            navigate("/admin");
+          } else if (location.search.includes("car")) {
+            const carId = searchParams.get("car");
+            navigate(`/payment/${carId}`);
+          }
         }
       } else {
         setUser(undefined);
