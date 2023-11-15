@@ -7,9 +7,11 @@ Next :
 - :heavy_check_mark: transactions table on admin interface
 - :heavy_check_mark: loading state for pages/components
 - [ ] favorites sistem
-- [ ] notifications sistem
+- [ ] favorites page
+- [ ] search
+- [ ] notifications sistem (transaction complete)
 - [ ] user page
 - [ ] dashboard with statistics on admin interface
-- [ ] animations
+- :heavy_check_mark: animations
 - :heavy_check_mark: protected routes
 - [ ] optimizations
