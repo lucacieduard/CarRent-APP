@@ -8,10 +8,10 @@ Next :
 - :heavy_check_mark: loading state for pages/components
 - [ ] favorites sistem
 - [ ] favorites page
-- [ ] search
+- :heavy_check_mark: search
 - [ ] notifications sistem (transaction complete)
 - [ ] user page
 - [ ] dashboard with statistics on admin interface
 - :heavy_check_mark: animations
 - :heavy_check_mark: protected routes
-- [ ] optimizations
+
