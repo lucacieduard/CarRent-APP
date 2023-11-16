@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+
 import "./CarCard.scss";
 import { faGasPump, faO, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { Car } from "../../types/Car";
 import { motion } from "framer-motion";
+import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
 
 type Props = {
   recomandation: boolean;
@@ -12,6 +13,8 @@ type Props = {
   nr: number;
 };
 const CarCard = (props: Props) => {
+  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -29,7 +32,8 @@ const CarCard = (props: Props) => {
     >
       <div className="cardHeader">
         <span className="carName">{props.car.carName}</span>
-        <FontAwesomeIcon icon={faHeart} color="gray" className="heart" />
+        <FavoriteHeart car={props.car} />
+        
       </div>
       <span className="carType">{props.car.carType}</span>
       <div className={`cardMain ${props.recomandation ? "recCardMain" : ""}`}>

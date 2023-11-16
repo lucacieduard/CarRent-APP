@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./CarInfo.scss";
 import rectangle from "/rectangle.png";
 import { useState } from "react";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { Car } from "../../types/Car";
 import { Link } from "react-router-dom";
+import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
 
 type Params = {
   car: Car;
@@ -73,7 +72,7 @@ const CarInfo = (props: Params) => {
             <h2 className="infoTitle">{props.car.carName}</h2>
             <span>stele</span>
           </div>
-          <FontAwesomeIcon icon={faHeart} className="heart" />
+          <FavoriteHeart car={props.car} />
         </div>
         <p className="description">{props.car.description}</p>
         <div className="infoList">

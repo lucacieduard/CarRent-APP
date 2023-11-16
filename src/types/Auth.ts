@@ -7,4 +7,5 @@ export type User = {
     administrator: boolean;
     uid: string;
     admin: boolean;
+    favoriteCars : string[]
 }
