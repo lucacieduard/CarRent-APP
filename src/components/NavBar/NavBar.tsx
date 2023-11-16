@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.scss";
-import { faHeart, faBell, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import FullPageLayout from "../../layout/FullPage/FullPageLayout";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -9,6 +9,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { motion } from "framer-motion";
 import Search from "./Search";
+import Favorites from "./Favorites";
 const NavBar = () => {
   const authCtx = useContext(AuthContext);
 
@@ -28,9 +29,7 @@ const NavBar = () => {
         {authCtx.user ? (
           <>
             <div className="icons">
-              <span className="icon">
-                <FontAwesomeIcon icon={faHeart} className="faicon" />
-              </span>
+              <Favorites />
               <span className="icon">
                 <FontAwesomeIcon icon={faBell} className="faicon" />
               </span>

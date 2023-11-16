@@ -20,7 +20,6 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       setError(true);
-    } finally {
       setLoading(false);
     }
   };

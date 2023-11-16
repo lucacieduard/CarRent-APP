@@ -119,6 +119,12 @@
             border-radius: 5.625rem;
             border: 1px solid rgba(195, 212, 233, 0.4);
             opacity: 0.8;
+            position: relative;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #d1d8e3;
+            }
 
             @media (min-width: 750px) {
                 width: 2rem;
@@ -135,8 +141,8 @@
                 height: 0.9rem;
 
                 @media (min-width: 750px) {
-                    width: 1.5rem;
-                    height: 1.5rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
                 }
             }
         }
