@@ -61,11 +61,6 @@ const Login = () => {
           {error && (
             <span style={{ color: "red" }}>Wrong email or password!</span>
           )}
-          {user.user?.email && (
-            <span style={{ color: "green" }}>
-              You are already logged in as {user.user?.email}
-            </span>
-          )}
         </form>
         <span className="nAc">
           Dont have an account? <Link to={"/register"}>Sign Up</Link>
