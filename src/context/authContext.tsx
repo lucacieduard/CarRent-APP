@@ -57,6 +57,8 @@ export const AuthContextProvider = ({
         const searchParams = new URLSearchParams(location.search);
         const carId = searchParams.get("car");
         navigate(`/payment/${carId}`);
+      } else {
+        navigate("/cars");
       }
     }
   }, [user]);
