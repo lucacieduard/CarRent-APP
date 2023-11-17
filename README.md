@@ -9,6 +9,7 @@ Next :
 - :heavy_check_mark: favorites sistem
 - :heavy_check_mark: search
 - [ ] toastify
+- [ ] filter
 - [ ] notifications sistem (transaction complete)
 - [ ] dashboard with statistics on admin interface
 - :heavy_check_mark: animations
