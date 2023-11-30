@@ -5,7 +5,6 @@ import {
   faArrowRightFromBracket,
   faBars,
   faCarSide,
-  faHouse,
   faPlus,
   faUsers,
   faWallet,
@@ -37,18 +36,6 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
               <NavLink
                 to="/admin"
                 end
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
-                }
-              >
-                <li>
-                  <FontAwesomeIcon icon={faHouse} />
-                  DashBoard
-                </li>
-              </NavLink>
-
-              <NavLink
-                to="/admin/cars"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }

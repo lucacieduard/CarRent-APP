@@ -6,7 +6,6 @@ import Cars from "./pages/Cars/Cars";
 import CarPage from "./pages/Car/CarPage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import DashBoard from "./pages/Admin/DashBoard";
 import AddCar from "./pages/AddCar/AddCar";
 import AdminCars from "./pages/AdminCars/AdminCars";
 import AdminTransactions from "./pages/AdminTransactions/AdminTransactions";
@@ -56,14 +55,6 @@ function App() {
           />
           <Route path="admin">
             <Route
-              index
-              element={
-                <ProtectedRoute>
-                  <DashBoard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="add"
               element={
                 <ProtectedRoute>
@@ -72,7 +63,7 @@ function App() {
               }
             />
             <Route
-              path="cars"
+              index
               element={
                 <ProtectedRoute>
                   <AdminCars />
