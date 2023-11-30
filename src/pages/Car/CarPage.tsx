@@ -31,7 +31,7 @@ const CarPage = () => {
       animate="visible"
       exit="exit"
     >
-      <SideBarPage buttons={false}>
+      <SideBarPage buttons={false} filter={() => console.log()}>
         {!car ? (
           <div
             style={{
